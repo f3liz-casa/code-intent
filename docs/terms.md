@@ -678,3 +678,27 @@ Request (ひなた): also learn how Intent and category are derived, with a few 
 **Limits.** One seed; the 6 held-out repositories are not balanced across languages (php 12.5k and ruby 11k units, tsx 295); the NLL is heavy-tailed; the run is capped at 15,000 units per repository; hand-set variance floor and contamination weight as before; tokens are raw callee names.
 
 **Next.** (1) Replace raw tokens by leaf-category counts so categories can be shared across languages; (2) add a language-local style offset to the latent model instead of treating the layer as a separate baseline; (3) add paradigm features (chain/builder shape, pattern match, early return vs steps) so styles can differ beyond the class split.
+
+## 32. Leaf-class tokens, per-language centering, paradigm features (Actions run 39763240944)
+
+**Variants.** Same 409,187 units, 6 held-out repositories, 12 styles; only the export changed. `base`: raw callee tokens, 24 categories (a re-run of sec. 31). `leaf`: callee names replaced by seven language-independent effect classes (write, emit, read, ui, state, pure, delegate, plus none) and the leading verb of the unit name, 1,699 tokens, 8 categories. `leaf-centered`: leaf plus every structure feature standardized inside its language. `leaf-centered-paradigm`: that plus closures, call density, branch density and "returns more than once". The leaf table is a hand-set prefix table over the last segment of the callee (first match in the order write, emit, read, ui, state, pure, else delegate); it is crude, and words such as `to`, `is`, `use` are matched by prefix. NLL is comparable only within a variant, because the features differ.
+
+**Held-out NLL (global / language:role layer / dense / sparse).**
+
+| variant | global | layer | dense | sparse | dense minus layer |
+|---|---|---|---|---|---|
+| base | 21.54 | 12.34 | 15.45 | 17.77 | +3.1 |
+| leaf | 21.54 | 12.38 | 15.27 | 17.74 | +2.9 |
+| leaf-centered | 21.60 | 13.59 | 17.49 | 19.65 | +3.9 |
+| leaf-centered-paradigm | 27.23 | 19.30 | 22.63 | 26.18 | +3.3 |
+
+**Reading.**
+- Leaf tokens do as well as raw callee names with a quarter of the vocabulary and a third of the categories (dense 15.27 against 15.45), so the cross-language vocabulary costs nothing. It does not close the gap to the layer baseline.
+- The latent model still loses to the language:role layer baseline in every variant (by 3 to 4 nats), and wins only for javascript, typescript and tsx, where the layer baseline is no better than the global mean. Centering by language does not change that, so the language offset is not what the latent model is missing. A plausible reason, not tested: the layer baseline uses a per-layer variance, while the latent model shares each style's variance across all layers.
+- After centering, the styles become shared across languages, which was the point. In `leaf-centered-paradigm` three styles cover everything: plain small functions (83.7%, no language above 15%), long complex functions with many closures and deep nesting (12.8%; java 16%, perl 15%, cpp 8%, rust 8%), and try plus await handlers (3.5%; typescript, python, csharp, javascript). Without the paradigm features the second is "long, loops, deep" (3.7%) and a separate "fewer awaits and optional chains" style (19.7%; typescript, csharp, javascript), which is an async-language marker and probably a feature-definition artefact rather than a style. So the closure and nesting features add one real, language-independent style; they do not add many.
+- Leaf categories are now readable across languages: accessors and equality (`k:read k:pure`, php/java/typescript), CRUD (`k:write k:ui`, v:add/create/update/remove), construction and parsing (`k:pure v:new v:parse v:format`, python/rust/go), tests and visitors (`k:delegate v:test v:visit`), logging and assertions (`k:emit k:state v:assert v:print`), and two that are really one codebase (cpp diagnostics `v:diagnose v:mangle`, and C/Ruby/Elixir glue `v:pg v:rm v:exec`). Several mix a domain with a language family; 8 categories is probably too few.
+- The sparse fit still collapses to 3 or 4 styles in every variant; the two or three big ones carry over 90%. That is the "few and clear" behaviour wanted, but it also means rare styles are pruned, not found.
+
+**Limits.** One seed; the same 6 held-out repositories; hand-set leaf table and prefix matching; "returns more than once" is a crude early-return signal and does not see guard clauses specifically; no test of the shared-variance explanation.
+
+**Next.** (1) Give each layer its own variance (or a mixture of per-layer scale) in the latent model and see whether the gap to the layer baseline closes; (2) a held-out check that works per language, so the answer to "is this style shared" does not rest on the pooled NLL; (3) replace the prefix table by an evidence-based leaf classification (the reachable-leaf method of sec. 27) for the languages where it can be computed.
