@@ -1,0 +1,51 @@
+held-out NLL per unit (sum over 17 standardized style features; lower = style better predicted by the Intent)
+  global Gaussian          8.578
+  per layer                7.186
+  per layer+category       6.652
+  MLP Intent prior         3.671
+
+R^2 of the MLP mean per style feature (held out, vs predicting the training mean):
+  loops       0.035
+  chain       0.084
+  mutate      0.121
+  let_share   0.017
+  awaits      0.601
+  thens       0.009
+  uses_this   0.702
+  in_class    0.741
+  switch      0.024
+  ternary     0.087
+  try         0.104
+  throw       0.263
+  depth       0.206
+  loc         0.333
+  cyc         0.181
+  optional    0.042
+  nonnull     0.018
+
+most unusual styles for their Intent (highest held-out NLL), with the three features that deviate most (z):
+   2350.9  frontend/src/components/global/MkSuspense.vue:20 .process  [fe:component/ui]  thens +68.5, mutate +5.3, depth +1.4
+    787.2  frontend/src/utility/admin-lookup.ts:11 .lookupUser  [fe:util/read]  thens +39.7, uses_this -0.8, in_class -0.8
+    682.9  backend/src/core/NoteCreateService.ts:747 NoteCreateService.postNoteCreated  [be:service/write]  thens +36.4, cyc +3.5, ternary +3.2
+    680.7  backend/src/misc/loader.ts:50 DebounceLoader.enqueueDebouncedLoadJob  [be:misc/pure]  thens +36.9, depth +3.0, uses_this +1.5
+    277.6  backend/src/server/api/endpoints/admin/update-meta.ts:244 <anon>.<handler>  [be:endpoint/emit]  mutate +18.0, chain +8.4, cyc +8.2
+    209.2  frontend/src/composables/use-uploader.ts:114 .useUploader  [fe:composable/ui]  thens +14.7, nonnull +5.4, chain +5.2
+    195.3  backend/src/core/MfmService.ts:272 MfmService.toHtml  [be:service/pure]  try +14.7, switch +7.5, ternary +5.7
+    192.0  backend/src/core/activitypub/models/ApPersonService.ts:303 ApPersonService.createPerson  [be:activitypub/write]  thens +18.7, optional +3.5, try +2.4
+    190.0  backend/src/core/activitypub/models/ApPersonService.ts:490 ApPersonService.updatePerson  [be:activitypub/write]  thens +18.9, optional +2.8, ternary +1.7
+    175.5  frontend-shared/js/mfm-renderer.ts:87 .createMfmRenderer  [pkg:frontend-shared/ui]  ternary +10.4, switch +8.6, cyc +6.9
+    159.1  backend/src/server/api/endpoints/i/revoke-token.ts:61 <anon>.<handler>  [be:endpoint/write]  let_share +18.2, cyc +2.3, throw +1.2
+    152.7  backend/src/server/api/endpoints/i/update.ts:286 <anon>.<handler>  [be:endpoint/write]  mutate +13.7, loops +6.1, chain +4.3
+    152.4  backend/src/core/PushNotificationService.ts:78 PushNotificationService.isValidEndpoint  [be:service/pure]  let_share +15.2, try +9.2, loc +1.4
+    151.2  frontend/src/pages/install-extensions.vue:42 ._fetch_  [fe:page/read]  switch +14.3, try +6.9, throw +6.0
+    138.9  frontend/src/plugin.ts:57 .parsePluginMeta  [fe:module/pure]  throw +14.5, try +6.2, awaits +5.2
+    132.6  frontend/src/widgets/server-metric/cpu-mem.vue:43 .onStats  [fe:widget/pure]  nonnull +10.7, let_share +9.3, chain +7.8
+    129.8  frontend/src/utility/image-frame-renderer/ImageFrameRenderer.ts:74 ImageFrameRenderer.interpolateTemplateText  [fe:util/pure]  optional +11.3, switch +8.3, ternary +5.8
+    123.4  backend/src/core/MfmService.ts:29 MfmService.fromHtml  [be:service/pure]  loops +7.8, switch +7.5, cyc +6.6
+    120.9  frontend/src/components/MkEmojiPicker.vue:191 .searchUnicode  [fe:component/pure]  loops +12.5, chain +6.5, optional +5.1
+    120.9  frontend/src/utility/popup-position.ts:6 .calcPopupPosition  [fe:util/pure]  nonnull +13.3, switch +5.8, loc +3.9
+    106.4  frontend-embed/src/misskey-api.ts:13 .misskeyApi  [fe-embed/state]  thens +13.4, throw +5.1, depth +2.2
+    105.5  frontend/src/components/MkEmojiPicker.vue:115 .searchCustom  [fe:component/pure]  loops +11.3, chain +7.0, cyc +4.5
+    104.7  frontend/src/pages/scratchpad.vue:62 .run  [fe:page/ui]  try +10.0, let_share +7.5, switch +6.5
+    104.7  backend/src/core/NoteCreateService.ts:441 NoteCreateService.create  [be:service/write]  switch +9.1, mutate +7.7, nonnull +6.4
+     99.6  frontend/src/preferences/manager.ts:390 PreferencesManager.getMatchedRecordOf  [fe:preferences/pure]  throw +9.6, in_class +6.1, uses_this +6.1
