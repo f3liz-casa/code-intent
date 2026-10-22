@@ -73,6 +73,22 @@ jobs:
     if: ${{ !cancelled() && needs.extract.result != 'skipped' }}
     runs-on: ubuntu-latest
     timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: base
+            export: ''
+            categories: ''
+          - name: leaf
+            export: '--tokens leaf'
+            categories: '8'
+          - name: leaf-centered
+            export: '--tokens leaf --center-lang'
+            categories: '8'
+          - name: leaf-centered-paradigm
+            export: '--tokens leaf --center-lang --paradigm'
+            categories: '8'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -86,17 +102,19 @@ jobs:
       - uses: julia-actions/setup-julia@v2
         with:
           version: '1.11'
-      - name: Export tables
+      - name: Export tables (${{ matrix.name }})
         run: |
           mkdir -p data
-          python pilot/corpus/export_corpus.py units data --min-df 20
+          python pilot/corpus/export_corpus.py units data --min-df 20 ${{ matrix.export }}
       - name: Train (held-out repositories)
-        run: julia --startup-file=no pilot/julia/corpus_train.jl data results --kc "${{ inputs.categories }}" --ks "${{ inputs.styles }}"
+        env:
+          KC: ${{ matrix.categories || inputs.categories }}
+        run: julia --startup-file=no pilot/julia/corpus_train.jl data results --kc "$KC" --ks "${{ inputs.styles }}"
       - name: Summary
         if: always()
         run: |
           {
-            echo '## Corpus training'
+            echo '## Corpus training: ${{ matrix.name }}'
             echo '```'
             cat results/corpus_results.txt 2>/dev/null || echo 'no results'
             echo '```'
@@ -104,6 +122,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: corpus-results
+          name: corpus-results-${{ matrix.name }}
           path: results/
           retention-days: 30

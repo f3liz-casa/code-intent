@@ -31,6 +31,7 @@ LOOP = re.compile(r'(for_statement|for_in_statement|for_of|foreach|while_stateme
 IFS = {'if_statement', 'if_expression', 'if', 'elsif', 'unless', 'elif_clause', 'else_if_clause', 'if_modifier', 'unless_modifier', 'guard_statement', 'if_let_expression', 'guard'}
 SWITCH = {'switch_statement', 'switch_expression', 'match_expression', 'match_statement', 'when_expression', 'case', 'case_match', 'expression_switch_statement', 'type_switch_statement', 'select_statement', 'case_statement', 'switch', 'case_expression'}
 TRY = {'try_statement', 'try_expression', 'try', 'rescue', 'try_with_resources_statement', 'do_catch', 'begin'}
+RETURN = {'return_statement', 'return_expression', 'return', 'return_value'}
 THROW = {'throw_statement', 'throw_expression', 'raise', 'raise_statement', 'throw', 'panic'}
 TERN = {'ternary_expression', 'conditional_expression'}
 AWAIT = {'await_expression', 'await'}
@@ -89,7 +90,7 @@ def callee_text(node):
     return re.sub(r'\s+', '', t)[:120]
 
 def analyze(node, lang, in_class):
-    c = dict(loops=0, chain=0, mutate=0, lets=0, consts=0, awaits=0, thens=0, throws=0, tries=0, sw=0, tern=0, ifs=0, opt=0, thisUse=0, maxDepth=0, cyc=1, calls=0, nonNull=0, closures=0)
+    c = dict(loops=0, chain=0, mutate=0, lets=0, consts=0, awaits=0, thens=0, throws=0, tries=0, sw=0, tern=0, ifs=0, opt=0, thisUse=0, maxDepth=0, cyc=1, calls=0, nonNull=0, closures=0, returns=0)
     callees = []
     stack = [(node, 0)]
     while stack:
@@ -102,6 +103,7 @@ def analyze(node, lang, in_class):
         elif t in CATCH: c['cyc'] += 1
         elif t in TERN: c['tern'] += 1; c['cyc'] += 1
         elif t in THROW: c['throws'] += 1
+        elif t in RETURN: c['returns'] += 1
         elif t in AWAIT: c['awaits'] += 1
         if t in BOOLOP:
             op = n.child_by_field_name('operator')
