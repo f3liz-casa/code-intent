@@ -1,0 +1,109 @@
+name: train-corpus
+
+# Clone the multi-language corpus (pilot/corpus/repos.tsv), extract function-level units with tree-sitter,
+# then train the latent category/style model (Julia) on all of it, holding out whole repositories.
+on:
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: 'Comma-separated owner/repo list (empty = every repository in repos.tsv)'
+        required: false
+        default: ''
+      max_units:
+        description: 'Maximum units kept per repository'
+        required: false
+        default: '15000'
+      categories:
+        description: 'Number of latent categories'
+        required: false
+        default: '24'
+      styles:
+        description: 'Maximum number of latent styles'
+        required: false
+        default: '12'
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        env:
+          WANTED: ${{ inputs.repos }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import csv, json, os
+          rows = list(csv.DictReader(open('pilot/corpus/repos.tsv'), delimiter='\t'))
+          wanted = {r.strip() for r in os.environ.get('WANTED', '').split(',') if r.strip()}
+          repos = [r['repo'] for r in rows if not wanted or r['repo'] in wanted]
+          print('matrix=' + json.dumps({'repo': repos}))
+          PY
+
+  extract:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install tree-sitter tree-sitter-language-pack
+      - name: Shallow clone ${{ matrix.repo }}
+        run: git clone --depth 1 "https://github.com/${{ matrix.repo }}" "$RUNNER_TEMP/target"
+      - name: Extract units
+        run: python pilot/corpus/extract_corpus.py "$RUNNER_TEMP/target" "${{ matrix.repo }}" units --max-units "${{ inputs.max_units }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: units-${{ strategy.job-index }}
+          path: units/*.units.jsonl.gz
+          retention-days: 7
+
+  train:
+    needs: extract
+    if: ${{ !cancelled() && needs.extract.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: units-*
+          path: units
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.11'
+      - name: Export tables
+        run: |
+          mkdir -p data
+          python pilot/corpus/export_corpus.py units data --min-df 20
+      - name: Train (held-out repositories)
+        run: julia --startup-file=no pilot/julia/corpus_train.jl data results --kc "${{ inputs.categories }}" --ks "${{ inputs.styles }}"
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo '## Corpus training'
+            echo '```'
+            cat results/corpus_results.txt 2>/dev/null || echo 'no results'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: corpus-results
+          path: results/
+          retention-days: 30

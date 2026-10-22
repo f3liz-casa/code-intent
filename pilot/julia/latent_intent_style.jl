@@ -100,7 +100,7 @@ function heldout_nll(m::Model, d::Data, idx)
 end
 
 function fit(d::Data, idx; Kc = 12, Ks = 10, alpha = 0.5, kappa = 2.0, beta = 0.01, iters = 60, prune = 0.02, rng = MersenneTwister(0), verbose = false)
-    n = length(idx); dy = size(d.Y, 2); L = d.L
+    n = length(idx); dy = size(d.Y, 2); L = d.L; Ytr = d.Y[idx, :]
     # init: styles at random units, categories random responsibilities
     mu = d.Y[idx[randperm(rng, n)[1:Ks]], :]; s2 = ones(Ks, dy)
     m = Model(Kc, Ks, fill(1 / Kc, L, Kc), fill(1 / d.V, Kc, d.V), fill(1 / Ks, L, Kc, Ks), mu, s2)
@@ -123,16 +123,16 @@ function fit(d::Data, idx; Kc = 12, Ks = 10, alpha = 0.5, kappa = 2.0, beta = 0.
                 lp[c, s] = alive[s] ? log(m.pi[l, c]) + T[i, c] + log(m.rho[l, c, s] + 1e-300) + G[i, s] : -Inf
             end
             z = logsumexp(vec(lp)); ll += z
-            r = exp.(lp .- z); N[l, :, :] .+= r; Rnew[k, :] = sum(r, dims = 2); Rs[k, :] = vec(sum(r, dims = 1))
+            r = exp.(lp .- z); @views N[l, :, :] .+= r; Rnew[k, :] = sum(r, dims = 2); Rs[k, :] = vec(sum(r, dims = 1))
         end
         R = Rnew
         # M-step for styles
         wsum = vec(sum(Rs, dims = 1))
         for s in 1:Ks
             alive[s] || continue
-            m.mu[s, :] = vec(sum(Rs[:, s] .* d.Y[idx, :], dims = 1)) ./ (wsum[s] + 1e-9)
+            m.mu[s, :] = vec(sum(Rs[:, s] .* Ytr, dims = 1)) ./ (wsum[s] + 1e-9)
             for j in 1:dy
-                m.s2[s, j] = max(sum(Rs[:, s] .* (d.Y[idx, j] .- m.mu[s, j]) .^ 2) / (wsum[s] + 1e-9), VFLOOR)
+                m.s2[s, j] = max(sum(Rs[:, s] .* (Ytr[:, j] .- m.mu[s, j]) .^ 2) / (wsum[s] + 1e-9), VFLOOR)
             end
         end
         # sparse Dirichlet MAP for rho: rows may drop styles; back off to the layer's own style mix
