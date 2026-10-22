@@ -1,0 +1,16 @@
+N=412 eval sites over 62 methods
+resolver                              all 2 candidates           3-4            5+
+chance                               0.36         0.50          0.30          0.13
+prior                                0.72         0.80          0.80          0.33
+receiver words                       0.59         0.72          0.56          0.34
+C++ class words                      0.58         0.71          0.55          0.31
+Qwen3 (site vs interface text)       0.69         0.91          0.55          0.47
+receiver + C++ class words           0.76         0.93          0.67          0.56
+Qwen3 + receiver + C++ class         0.76         0.93          0.64          0.58
+prior + Qwen3 + receiver + C++ class   0.82         0.94          0.77          0.64
+Qwen3 + receiver                     0.73         0.92          0.60          0.52
+bucket sizes {'2 candidates': 180, '3-4': 168, '5+': 64}
+  95% CI chance                           [0.35, 0.37]
+  95% CI receiver words                   [0.56, 0.63]
+  95% CI Qwen3 (site vs interface text)   [0.65, 0.74]
+  95% CI Qwen3 + receiver + C++ class     [0.72, 0.80]

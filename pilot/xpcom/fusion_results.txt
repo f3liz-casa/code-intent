@@ -1,0 +1,32 @@
+C0 raw
+   qwen3              R@1 0.50 R@10 0.73 MRR 0.58
+   tfidf-words        R@1 0.44 R@10 0.88 MRR 0.60
+   w2v-firefox idf    R@1 0.33 R@10 0.68 MRR 0.46
+   qwen3+tfidf        R@1 0.52 R@10 0.86 MRR 0.65
+   qwen3+w2v          R@1 0.50 R@10 0.76 MRR 0.60
+   qwen3+tfidf+w2v    R@1 0.50 R@10 0.85 MRR 0.63
+   unixcoder+tfidf    R@1 0.47 R@10 0.87 MRR 0.61
+C1 JS name masked
+   qwen3              R@1 0.42 R@10 0.69 MRR 0.52
+   tfidf-words        R@1 0.36 R@10 0.77 MRR 0.49
+   w2v-firefox idf    R@1 0.25 R@10 0.64 MRR 0.38
+   qwen3+tfidf        R@1 0.40 R@10 0.78 MRR 0.54
+   qwen3+w2v          R@1 0.43 R@10 0.71 MRR 0.54
+   qwen3+tfidf+w2v    R@1 0.40 R@10 0.78 MRR 0.54
+   unixcoder+tfidf    R@1 0.38 R@10 0.76 MRR 0.50
+C2 C++ name masked
+   qwen3              R@1 0.40 R@10 0.71 MRR 0.51
+   tfidf-words        R@1 0.37 R@10 0.82 MRR 0.52
+   w2v-firefox idf    R@1 0.27 R@10 0.62 MRR 0.40
+   qwen3+tfidf        R@1 0.43 R@10 0.83 MRR 0.56
+   qwen3+w2v          R@1 0.40 R@10 0.76 MRR 0.53
+   qwen3+tfidf+w2v    R@1 0.44 R@10 0.81 MRR 0.57
+   unixcoder+tfidf    R@1 0.39 R@10 0.78 MRR 0.52
+C4 name masked, different hashes
+   qwen3              R@1 0.36 R@10 0.68 MRR 0.47
+   tfidf-words        R@1 0.31 R@10 0.72 MRR 0.44
+   w2v-firefox idf    R@1 0.23 R@10 0.59 MRR 0.36
+   qwen3+tfidf        R@1 0.36 R@10 0.77 MRR 0.49
+   qwen3+w2v          R@1 0.36 R@10 0.72 MRR 0.49
+   qwen3+tfidf+w2v    R@1 0.37 R@10 0.77 MRR 0.50
+   unixcoder+tfidf    R@1 0.32 R@10 0.69 MRR 0.45

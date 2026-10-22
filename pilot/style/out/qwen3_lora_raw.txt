@@ -1,0 +1,183 @@
+analogy_row_acc:
+  all: 0.35
+  other_top: 0.335
+  same_sub: 0.388
+real:
+  argparse:
+    n: 40
+    outlier_auroc: 0.558
+    spread: 0.131
+    style_share:
+      D: 0.02
+      F: 0.22
+      G: 0.18
+      O: 0.32
+      P: 0.25
+    sub_share:
+      collections: 0.05
+      compose: 0.8
+      filesystem: 0.08
+      logic: 0.08
+      network: 0.0
+      numeric: 0.0
+    top_share:
+      compute: 0.12
+      glue: 0.82
+      io: 0.05
+  collections:
+    n: 26
+    outlier_auroc: 0.872
+    spread: 0.112
+    style_share:
+      D: 0.0
+      F: 0.04
+      G: 0.15
+      O: 0.77
+      P: 0.04
+    sub_acc: 0.885
+    sub_share:
+      collections: 0.88
+      compose: 0.04
+      filesystem: 0.0
+      logic: 0.0
+      network: 0.0
+      numeric: 0.08
+    top_acc: 1.0
+    top_share:
+      compute: 1.0
+      glue: 0.0
+      io: 0.0
+  networkx_paths:
+    n: 11
+    outlier_auroc: 0.948
+    spread: 0.073
+    style_share:
+      D: 0.09
+      F: 0.0
+      G: 0.82
+      O: 0.09
+      P: 0.0
+    sub_acc: 0.0
+    sub_share:
+      collections: 0.91
+      compose: 0.0
+      filesystem: 0.09
+      logic: 0.0
+      network: 0.0
+      numeric: 0.0
+    top_acc: 0.909
+    top_share:
+      compute: 0.91
+      glue: 0.0
+      io: 0.09
+  numpy_lib:
+    n: 20
+    outlier_auroc: 0.867
+    spread: 0.142
+    style_share:
+      D: 0.9
+      F: 0.0
+      G: 0.05
+      O: 0.05
+      P: 0.0
+    sub_acc: 0.85
+    sub_share:
+      collections: 0.05
+      compose: 0.1
+      filesystem: 0.0
+      logic: 0.0
+      network: 0.0
+      numeric: 0.85
+    top_acc: 1.0
+    top_share:
+      compute: 1.0
+      glue: 0.0
+      io: 0.0
+  statistics:
+    n: 33
+    outlier_auroc: 0.893
+    spread: 0.088
+    style_share:
+      D: 0.52
+      F: 0.09
+      G: 0.27
+      O: 0.06
+      P: 0.06
+    sub_acc: 0.879
+    sub_share:
+      collections: 0.09
+      compose: 0.03
+      filesystem: 0.0
+      logic: 0.0
+      network: 0.0
+      numeric: 0.88
+    top_acc: 1.0
+    top_share:
+      compute: 1.0
+      glue: 0.0
+      io: 0.0
+  stdlib_fs:
+    n: 40
+    outlier_auroc: 0.587
+    spread: 0.127
+    style_share:
+      D: 0.12
+      F: 0.1
+      G: 0.5
+      O: 0.25
+      P: 0.02
+    sub_acc: 0.6
+    sub_share:
+      collections: 0.15
+      compose: 0.22
+      filesystem: 0.6
+      logic: 0.0
+      network: 0.02
+      numeric: 0.0
+    top_acc: 0.6
+    top_share:
+      compute: 0.18
+      glue: 0.22
+      io: 0.6
+  stdlib_net:
+    n: 40
+    outlier_auroc: 0.643
+    spread: 0.143
+    style_share:
+      D: 0.08
+      F: 0.02
+      G: 0.1
+      O: 0.7
+      P: 0.1
+    sub_acc: 0.725
+    sub_share:
+      collections: 0.15
+      compose: 0.02
+      filesystem: 0.05
+      logic: 0.02
+      network: 0.72
+      numeric: 0.02
+    top_acc: 0.625
+    top_share:
+      compute: 0.18
+      glue: 0.2
+      io: 0.62
+style_acc:
+  global: 0.54
+  intent_centered: 0.88
+  pred_sub: 0.56
+  true_sub: 0.52
+style_vec_cos_between_tops:
+  cos(compute,glue): 0.343
+  cos(compute,io): 0.455
+  cos(io,glue): 0.269
+sub_acc: (0.46, 0.156, 0.005)
+sub_acc_style_corrected: 0.46
+top_acc: (0.65, 0.42, 0.035)
+top_acc_style_corrected: 0.66
+variance:
+  intent_given_sub: 0.568
+  interaction: 0.123
+  style: 0.026
+  sub_given_top: 0.159
+  top_category: 0.124

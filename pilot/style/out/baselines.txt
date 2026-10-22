@@ -1,0 +1,2 @@
+raw length-only 0.53 | token tf-idf 0.92 | keyword+punct tf-idf 0.87 (chance 0.20)
+hashed length-only 0.61 | token tf-idf 0.91 | keyword+punct tf-idf 0.87 (chance 0.20)

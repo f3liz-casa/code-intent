@@ -1,0 +1,115 @@
+{
+ "before": {
+  "quickjs (C, unseen repo)": {
+   "n": 111,
+   "mrr": 0.8799143840810507,
+   "r1": 0.8288288288288288,
+   "r10": 0.963963963963964,
+   "finite": true,
+   "mean_cos_between_codes": 0.39124295115470886
+  },
+  "julia (unseen language)": {
+   "n": 200,
+   "mrr": 0.7923513682889255,
+   "r1": 0.72,
+   "r10": 0.91,
+   "finite": true,
+   "mean_cos_between_codes": 0.3640693724155426
+  },
+  "pandoc (Haskell, unseen language)": {
+   "n": 46,
+   "mrr": 0.8904379332073095,
+   "r1": 0.8260869565217391,
+   "r10": 0.9782608695652174,
+   "finite": true,
+   "mean_cos_between_codes": 0.42739227414131165
+  },
+  "quickjs in made-up syntax \"zorb\"": {
+   "n": 111,
+   "mrr": 0.849230033111612,
+   "r1": 0.7657657657657657,
+   "r10": 0.963963963963964,
+   "finite": true,
+   "mean_cos_between_codes": 0.4137686789035797
+  },
+  "quickjs zorb + obfuscated names": {
+   "n": 111,
+   "mrr": 0.2658660325650566,
+   "r1": 0.17117117117117117,
+   "r10": 0.43243243243243246,
+   "finite": true,
+   "mean_cos_between_codes": 0.5933203101158142
+  },
+  "match original->zorb": {
+   "n": 111,
+   "r1": 1.0,
+   "r10": 1.0,
+   "mean_cos_pair": 0.9265686869621277
+  },
+  "match original->zorb+obf": {
+   "n": 111,
+   "r1": 0.27927927927927926,
+   "r10": 0.5405405405405406,
+   "mean_cos_pair": 0.4632114768028259
+  }
+ },
+ "train": {
+  "pairs": 1264,
+  "steps": 79,
+  "secs": 2910.776138782501
+ },
+ "after": {
+  "quickjs (C, unseen repo)": {
+   "n": 111,
+   "mrr": 0.8721000793223016,
+   "r1": 0.8108108108108109,
+   "r10": 0.963963963963964,
+   "finite": true,
+   "mean_cos_between_codes": 0.23390476405620575
+  },
+  "julia (unseen language)": {
+   "n": 200,
+   "mrr": 0.8004327405361985,
+   "r1": 0.73,
+   "r10": 0.915,
+   "finite": true,
+   "mean_cos_between_codes": 0.21776773035526276
+  },
+  "pandoc (Haskell, unseen language)": {
+   "n": 46,
+   "mrr": 0.9156602254428342,
+   "r1": 0.8695652173913043,
+   "r10": 0.9782608695652174,
+   "finite": true,
+   "mean_cos_between_codes": 0.3120698928833008
+  },
+  "quickjs in made-up syntax \"zorb\"": {
+   "n": 111,
+   "mrr": 0.8285383608986093,
+   "r1": 0.7297297297297297,
+   "r10": 0.972972972972973,
+   "finite": true,
+   "mean_cos_between_codes": 0.2684502899646759
+  },
+  "quickjs zorb + obfuscated names": {
+   "n": 111,
+   "mrr": 0.27394468265153815,
+   "r1": 0.18018018018018017,
+   "r10": 0.4594594594594595,
+   "finite": true,
+   "mean_cos_between_codes": 0.5006430149078369
+  },
+  "match original->zorb": {
+   "n": 111,
+   "r1": 1.0,
+   "r10": 1.0,
+   "mean_cos_pair": 0.9261922240257263
+  },
+  "match original->zorb+obf": {
+   "n": 111,
+   "r1": 0.2972972972972973,
+   "r10": 0.5585585585585585,
+   "mean_cos_pair": 0.36522728204727173
+  }
+ }
+}

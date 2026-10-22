@@ -1,0 +1,55 @@
+shutil.copyfile                          exp=['fs']                 got=['fs']                     ok
+shutil.rmtree                            exp=['fs']                 got=['fs']                     ok
+shutil.move                              exp=['fs']                 got=['fs']                     ok
+glob.glob                                exp=['fs']                 got=['console', 'fs', 'thread'] ok
+os.listdir                               exp=['fs']                 got=['fs']                     ok
+os.path.exists                           exp=['fs']                 got=['fs']                     ok
+os.path.join                             exp=[]                     got=[]                         ok
+os.makedirs                              exp=['fs']                 got=['fs']                     ok
+os.getcwd                                exp=['fs']                 got=['fs']                     ok
+tempfile.mkdtemp                         exp=['fs']                 got=['console', 'env', 'fs']   ok
+filecmp.cmp                              exp=['fs']                 got=['fs']                     ok
+pathlib.Path.read_text                   exp=['fs']                 got=['fs']                     ok
+fileinput.input                          exp=['fs']                 got=[]                         MISS
+urllib.request.urlopen                   exp=['net']                got=[]                         MISS
+urllib.request.urlretrieve               exp=['fs', 'net']          got=['console', 'env', 'fs']   ok
+http.client.HTTPConnection.request       exp=['net']                got=['console', 'net', 'thread'] ok
+socket.create_connection                 exp=['net']                got=['net']                    ok
+ftplib.FTP.connect                       exp=['net']                got=['console', 'net']         ok
+smtplib.SMTP.sendmail                    exp=['net']                got=['clock', 'console', 'net'] ok
+smtplib.SMTP.connect                     exp=['net']                got=['clock', 'console', 'net'] ok
+ssl.create_default_context               exp=['net']                got=['env']                    MISS
+urllib.parse.urlparse                    exp=[]                     got=['console', 'thread']      ok
+urllib.parse.quote                       exp=[]                     got=[]                         ok
+subprocess.run                           exp=['proc']               got=['env', 'fs', 'proc', 'thread'] ok
+subprocess.check_output                  exp=['proc']               got=['env', 'fs', 'proc', 'thread'] ok
+os.system                                exp=['proc']               got=['proc']                   ok
+os.getpid                                exp=[]                     got=['proc']                   MISS
+time.sleep                               exp=['clock']              got=['clock']                  ok
+time.time                                exp=['clock']              got=['clock']                  ok
+datetime.datetime.now                    exp=['clock']              got=['clock']                  ok
+os.getenv                                exp=['env']                got=['env']                    ok
+os.urandom                               exp=['random']             got=['random']                 ok
+json.dumps                               exp=[]                     got=[]                         ok
+json.loads                               exp=[]                     got=[]                         ok
+re.sub                                   exp=[]                     got=['console']                ok
+re.compile                               exp=[]                     got=['console']                ok
+textwrap.dedent                          exp=[]                     got=['console']                ok
+math.sqrt                                exp=[]                     got=[]                         ok
+statistics.mean                          exp=[]                     got=[]                         ok
+collections.Counter                      exp=[]                     got=[]                         ok
+itertools.chain                          exp=[]                     got=[]                         ok
+functools.reduce                         exp=[]                     got=[]                         ok
+heapq.nlargest                           exp=[]                     got=[]                         ok
+bisect.bisect_left                       exp=[]                     got=[]                         ok
+copy.deepcopy                            exp=[]                     got=[]                         ok
+string.capwords                          exp=[]                     got=[]                         ok
+threading.Thread.start                   exp=['thread']             got=['thread']                 ok
+logging.info                             exp=['clock', 'console', 'fs', 'thread'] got=[]                         MISS
+pprint.pprint                            exp=['console']            got=['console']                ok
+getpass.getpass                          exp=['console', 'fs']      got=[]                         MISS
+csv.reader                               exp=[]                     got=[]                         ok
+sqlite3.connect                          exp=[]                     got=[]                         ok
+zipfile.ZipFile.extractall               exp=['fs']                 got=['fs']                     ok
+tarfile.open                             exp=['fs']                 got=[]                         MISS
+tagged-expected: found at least one expected tag 28/34 | pure-expected: no IO tag 19/20

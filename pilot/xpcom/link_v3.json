@@ -1,0 +1,35 @@
+{
+ "A_n": 177,
+ "A_langs": {
+  "cpp": 150,
+  "js": 23,
+  "rust": 4
+ },
+ "A_raw": 0.4293785310734463,
+ "A_raw_by_lang": {
+  "cpp": 0.42,
+  "js": 0.43478260869565216,
+  "rust": 0.75
+ },
+ "A_name_masked": 0.3446327683615819,
+ "A_name_masked_by_lang": {
+  "cpp": 0.3333333333333333,
+  "js": 0.391304347826087,
+  "rust": 0.5
+ },
+ "A_raw_samelang_pool": {
+  "cpp": 0.4533333333333333,
+  "js": 0.5217391304347826,
+  "rust": 1.0
+ },
+ "A_name_masked_samelang_pool": {
+  "cpp": 0.34,
+  "js": 0.5652173913043478,
+  "rust": 1.0
+ },
+ "A_random_chance_global": 0.005649717514124294,
+ "C_n": 13,
+ "C_embed_R1": 0.8461538461538461,
+ "C_random": 0.47435897435897434,
+ "C_contract_total_with_truth": 13
+}

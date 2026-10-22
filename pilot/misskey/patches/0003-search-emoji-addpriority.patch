@@ -1,0 +1,101 @@
+From e418632a8f0a91992455613df3e7961ed64a0cbd Mon Sep 17 00:00:00 2001
+From: claude <noreply@anthropic.com>
+Date: Thu, 22 Oct 2026 07:18:22 +0000
+Subject: [PATCH] refactor(frontend): rank searchEmoji name matches with
+ addPriority
+
+---
+ packages/frontend/src/utility/search-emoji.ts | 49 +++++++++++--------
+ 1 file changed, 28 insertions(+), 21 deletions(-)
+
+diff --git a/packages/frontend/src/utility/search-emoji.ts b/packages/frontend/src/utility/search-emoji.ts
+index 3c5b97eb09..7c3996f1fc 100644
+--- a/packages/frontend/src/utility/search-emoji.ts
++++ b/packages/frontend/src/utility/search-emoji.ts
+@@ -20,41 +20,48 @@ const AUTOCOMPLETE_POPUP_SIZE = 6;
+ const FUZZY_MIN_QUERY_LENGTH = 4;
+ 
+ type RankedEmoji = EmojiScore & { dbIndex: number };
+-type NameFilter = { bonus: number; test: (x: EmojiDef, query: string) => boolean };
++type Prioritizer = (x: EmojiDef, query: string) => number | null;
+ 
+ const originalNameOf = (x: EmojiDef) => x.aliasOf ?? x.name;
+ const isAlias = (x: EmojiDef) => Boolean(x.aliasOf);
+-const OWN_NAME_EXACT_BONUS = 3;
++const OWN_NAME_EXACT_PRIORITY = 3;
+ 
+-class NameFilterChain {
+-	constructor(private filters: NameFilter[] = []) {}
++class EmojiPrioritizer {
++	constructor(private prioritizers: Prioritizer[] = []) {}
+ 
+-	addFilter(bonus: number, test: NameFilter['test']): NameFilterChain {
+-		return new NameFilterChain([...this.filters, { bonus, test }]);
++	addPriority(prioritizer: Prioritizer): EmojiPrioritizer {
++		return new EmojiPrioritizer([...this.prioritizers, prioritizer]);
+ 	}
+ 
+-	scoreOf(x: EmojiDef, query: string): number | null {
+-		const hit = this.filters.find(f => f.test(x, query));
+-		return hit ? query.length + hit.bonus : null;
++	priorityOf(x: EmojiDef, query: string): number | null {
++		const priorities = this.prioritizers.map(prioritizer => prioritizer(x, query)).filter(priority => priority !== null);
++		return priorities.length > 0 ? query.length + Math.max(...priorities) : null;
+ 	}
+ }
+ 
+-const exactNameFilters = new NameFilterChain()
+-	.addFilter(OWN_NAME_EXACT_BONUS, (x, q) => x.name === q && !isAlias(x))
+-	.addFilter(2, (x, q) => x.name === q);
++const exactPrioritizer = new EmojiPrioritizer()
++	.addPriority((x, q) => {
++		if (x.name === q) return isAlias(x) ? 2 : OWN_NAME_EXACT_PRIORITY;
++		return null;
++	});
+ 
+-const partialNameFilters = exactNameFilters
+-	.addFilter(1, (x, q) => x.name.startsWith(q) && !isAlias(x))
+-	.addFilter(0, (x, q) => x.name.startsWith(q))
+-	.addFilter(-1, (x, q) => x.name.includes(q));
++const partialPrioritizer = exactPrioritizer
++	.addPriority((x, q) => {
++		if (x.name.startsWith(q)) return isAlias(x) ? 0 : 1;
++		return null;
++	})
++	.addPriority((x, q) => {
++		if (x.name.includes(q)) return -1;
++		return null;
++	});
+ 
+-function rankByNameMatch(filters: NameFilterChain, query: string, emojiDb: EmojiDef[]): Map<string, EmojiScore> {
++function rankByNameMatch(prioritizer: EmojiPrioritizer, query: string, emojiDb: EmojiDef[]): Map<string, EmojiScore> {
+ 	const bestPerEmoji = new Map<string, RankedEmoji>();
+ 	emojiDb.forEach((emoji, dbIndex) => {
+-		const score = filters.scoreOf(emoji, query);
++		const score = prioritizer.priorityOf(emoji, query);
+ 		if (score === null) return;
+ 		const best = bestPerEmoji.get(originalNameOf(emoji));
+-		const replacesSameNamedEmoji = score === query.length + OWN_NAME_EXACT_BONUS;
++		const replacesSameNamedEmoji = score === query.length + OWN_NAME_EXACT_PRIORITY;
+ 		if (!best || score > best.score || (score === best.score && replacesSameNamedEmoji)) {
+ 			bestPerEmoji.set(originalNameOf(emoji), { emoji, score, dbIndex });
+ 		}
+@@ -107,7 +114,7 @@ export function searchEmoji(query: string | null, emojiDb: EmojiDef[], max = 30)
+ 		return [];
+ 	}
+ 
+-	const matched = rankByNameMatch(partialNameFilters, query, emojiDb);
++	const matched = rankByNameMatch(partialPrioritizer, query, emojiDb);
+ 
+ 	if (matched.size < max && query.length >= FUZZY_MIN_QUERY_LENGTH) {
+ 		for (const it of fuzzyHits(query, emojiDb, matched)) {
+@@ -123,5 +130,5 @@ export function searchEmojiExact(query: string | null, emojiDb: EmojiDef[], max
+ 		return [];
+ 	}
+ 
+-	return topByScore(rankByNameMatch(exactNameFilters, query, emojiDb), max);
++	return topByScore(rankByNameMatch(exactPrioritizer, query, emojiDb), max);
+ }
+-- 
+2.43.0
+

@@ -1,0 +1,37 @@
+language	repo	domain	why
+Python	django/django	web framework	canonical OOP + declarative (models, forms) Python
+Python	home-assistant/core	IoT integrations	huge, many small similar integrations: same intent in many files
+Python	pandas-dev/pandas	data library	array/functional, C-extension boundary
+TypeScript	microsoft/vscode	editor	large DI + event + disposable style
+TypeScript	angular/angular	UI framework	decorator/DI/compiler
+TypeScript	misskey-dev/misskey	fediverse server	already indexed (sec. 27)
+JavaScript	nodejs/node	runtime	JS over C++ bindings (like XPCOM link)
+Java	elastic/elasticsearch	search engine	real search/ranking code, large OOP
+Java	apache/kafka	messaging	protocol/state machines
+Java	spring-projects/spring-framework	framework	annotation/DI conventions
+CSharp	dotnet/aspnetcore	web framework	middleware/pipeline style
+CSharp	dotnet/runtime	runtime/BCL	very large, mixed styles
+C	redis/redis	datastore	small-function C, command table
+C	postgres/postgres	database	C with macros, executor/planner
+CPP	llvm/llvm-project	compiler	templates, visitors, pass pipelines
+CPP	mozilla/gecko-dev	browser	already indexed (XPCOM, sec. 24-26)
+Go	kubernetes/kubernetes	orchestration	interfaces, controllers, generated code
+Go	go-gitea/gitea	git hosting	web app in Go
+Go	owncast/owncast	live streaming (ActivityPub in Go)	replacement: gotosocial is not on GitHub
+Rust	rust-lang/rust	compiler	traits, enums, passes
+Rust	tokio-rs/tokio	async runtime	generic/trait-heavy
+Rust	LemmyNet/lemmy	fediverse server	ActivityPub in Rust
+PHP	laravel/framework	web framework	fluent/builder style (cf. addFilter)
+PHP	nextcloud/server	cloud storage	large app, mixed legacy
+PHP	WordPress/WordPress	CMS	hooks/procedural
+Ruby	rails/rails	web framework	DSL/convention over configuration
+Ruby	mastodon/mastodon	fediverse server	ActivityPub in Ruby
+Ruby	discourse/discourse	forum	large app
+Kotlin	JetBrains/kotlin	compiler	Kotlin style at scale
+Swift	apple/swift	compiler	C++ and Swift mix
+Perl	Perl/perl5	language implementation	Perl and C; Perl modules in lib/ and cpan/
+Perl	mojolicious/mojo	web framework	modern idiomatic Perl
+Scala	apache/spark	data processing	functional + OOP
+Elixir	phoenixframework/phoenix	web framework	replacement: pleroma is not on GitHub (no Elixir fediverse server mirrored)
+Elixir	elixir-lang/elixir	language	pipelines
+Haskell	jgm/pandoc	document converter	typeclass/pure functional

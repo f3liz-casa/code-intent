@@ -1,0 +1,83 @@
+From 5e5533b91131267f4dafd59fc450de20c07b3839 Mon Sep 17 00:00:00 2001
+From: claude <noreply@anthropic.com>
+Date: Thu, 22 Oct 2026 07:10:15 +0000
+Subject: [PATCH] refactor(frontend): express searchEmoji name rules as an
+ addFilter chain
+
+---
+ packages/frontend/src/utility/search-emoji.ts | 37 ++++++++++++++-----
+ 1 file changed, 27 insertions(+), 10 deletions(-)
+
+diff --git a/packages/frontend/src/utility/search-emoji.ts b/packages/frontend/src/utility/search-emoji.ts
+index 1835f421d0..3c5b97eb09 100644
+--- a/packages/frontend/src/utility/search-emoji.ts
++++ b/packages/frontend/src/utility/search-emoji.ts
+@@ -20,24 +20,41 @@ const AUTOCOMPLETE_POPUP_SIZE = 6;
+ const FUZZY_MIN_QUERY_LENGTH = 4;
+ 
+ type RankedEmoji = EmojiScore & { dbIndex: number };
++type NameFilter = { bonus: number; test: (x: EmojiDef, query: string) => boolean };
+ 
+ const originalNameOf = (x: EmojiDef) => x.aliasOf ?? x.name;
+ const isAlias = (x: EmojiDef) => Boolean(x.aliasOf);
++const OWN_NAME_EXACT_BONUS = 3;
+ 
+-function nameMatchScore(x: EmojiDef, query: string): number | null {
+-	if (x.name === query) return query.length + (isAlias(x) ? 2 : 3);
+-	if (x.name.startsWith(query)) return query.length + (isAlias(x) ? 0 : 1);
+-	if (x.name.includes(query)) return query.length - 1;
+-	return null;
++class NameFilterChain {
++	constructor(private filters: NameFilter[] = []) {}
++
++	addFilter(bonus: number, test: NameFilter['test']): NameFilterChain {
++		return new NameFilterChain([...this.filters, { bonus, test }]);
++	}
++
++	scoreOf(x: EmojiDef, query: string): number | null {
++		const hit = this.filters.find(f => f.test(x, query));
++		return hit ? query.length + hit.bonus : null;
++	}
+ }
+ 
+-function rankByNameMatch(query: string, emojiDb: EmojiDef[]): Map<string, EmojiScore> {
++const exactNameFilters = new NameFilterChain()
++	.addFilter(OWN_NAME_EXACT_BONUS, (x, q) => x.name === q && !isAlias(x))
++	.addFilter(2, (x, q) => x.name === q);
++
++const partialNameFilters = exactNameFilters
++	.addFilter(1, (x, q) => x.name.startsWith(q) && !isAlias(x))
++	.addFilter(0, (x, q) => x.name.startsWith(q))
++	.addFilter(-1, (x, q) => x.name.includes(q));
++
++function rankByNameMatch(filters: NameFilterChain, query: string, emojiDb: EmojiDef[]): Map<string, EmojiScore> {
+ 	const bestPerEmoji = new Map<string, RankedEmoji>();
+ 	emojiDb.forEach((emoji, dbIndex) => {
+-		const score = nameMatchScore(emoji, query);
++		const score = filters.scoreOf(emoji, query);
+ 		if (score === null) return;
+ 		const best = bestPerEmoji.get(originalNameOf(emoji));
+-		const replacesSameNamedEmoji = score === query.length + 3;
++		const replacesSameNamedEmoji = score === query.length + OWN_NAME_EXACT_BONUS;
+ 		if (!best || score > best.score || (score === best.score && replacesSameNamedEmoji)) {
+ 			bestPerEmoji.set(originalNameOf(emoji), { emoji, score, dbIndex });
+ 		}
+@@ -90,7 +107,7 @@ export function searchEmoji(query: string | null, emojiDb: EmojiDef[], max = 30)
+ 		return [];
+ 	}
+ 
+-	const matched = rankByNameMatch(query, emojiDb);
++	const matched = rankByNameMatch(partialNameFilters, query, emojiDb);
+ 
+ 	if (matched.size < max && query.length >= FUZZY_MIN_QUERY_LENGTH) {
+ 		for (const it of fuzzyHits(query, emojiDb, matched)) {
+@@ -106,5 +123,5 @@ export function searchEmojiExact(query: string | null, emojiDb: EmojiDef[], max
+ 		return [];
+ 	}
+ 
+-	return topByScore(rankByNameMatch(query, emojiDb.filter(x => x.name === query)), max);
++	return topByScore(rankByNameMatch(exactNameFilters, query, emojiDb), max);
+ }
+-- 
+2.43.0
+

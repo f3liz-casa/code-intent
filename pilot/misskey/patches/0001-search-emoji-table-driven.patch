@@ -1,0 +1,264 @@
+From 1df04b94df06df579dce9cc826641eae27a2572e Mon Sep 17 00:00:00 2001
+From: claude <noreply@anthropic.com>
+Date: Thu, 22 Oct 2026 05:57:52 +0000
+Subject: [PATCH] refactor(frontend): rank searchEmoji candidates by one
+ name-match score
+
+---
+ packages/frontend/src/utility/search-emoji.ts | 164 ++++++++----------
+ .../frontend/test/unit/search-emoji.test.ts   |  48 +++++
+ 2 files changed, 117 insertions(+), 95 deletions(-)
+ create mode 100644 packages/frontend/test/unit/search-emoji.test.ts
+
+diff --git a/packages/frontend/src/utility/search-emoji.ts b/packages/frontend/src/utility/search-emoji.ts
+index 4cda880bff..1835f421d0 100644
+--- a/packages/frontend/src/utility/search-emoji.ts
++++ b/packages/frontend/src/utility/search-emoji.ts
+@@ -16,121 +16,95 @@ export type EmojiDef = {
+ };
+ type EmojiScore = { emoji: EmojiDef, score: number };
+ 
+-export function searchEmoji(query: string | null, emojiDb: EmojiDef[], max = 30): EmojiDef[] {
+-	if (!query) {
+-		return [];
+-	}
++const AUTOCOMPLETE_POPUP_SIZE = 6;
++const FUZZY_MIN_QUERY_LENGTH = 4;
++
++type RankedEmoji = EmojiScore & { dbIndex: number };
+ 
+-	const matched = new Map<string, EmojiScore>();
+-	// 完全一致（エイリアスなし）
+-	emojiDb.some(x => {
+-		if (x.name === query && !x.aliasOf) {
+-			matched.set(x.name, { emoji: x, score: query.length + 3 });
++const originalNameOf = (x: EmojiDef) => x.aliasOf ?? x.name;
++const isAlias = (x: EmojiDef) => Boolean(x.aliasOf);
++
++function nameMatchScore(x: EmojiDef, query: string): number | null {
++	if (x.name === query) return query.length + (isAlias(x) ? 2 : 3);
++	if (x.name.startsWith(query)) return query.length + (isAlias(x) ? 0 : 1);
++	if (x.name.includes(query)) return query.length - 1;
++	return null;
++}
++
++function rankByNameMatch(query: string, emojiDb: EmojiDef[]): Map<string, EmojiScore> {
++	const bestPerEmoji = new Map<string, RankedEmoji>();
++	emojiDb.forEach((emoji, dbIndex) => {
++		const score = nameMatchScore(emoji, query);
++		if (score === null) return;
++		const best = bestPerEmoji.get(originalNameOf(emoji));
++		const replacesSameNamedEmoji = score === query.length + 3;
++		if (!best || score > best.score || (score === best.score && replacesSameNamedEmoji)) {
++			bestPerEmoji.set(originalNameOf(emoji), { emoji, score, dbIndex });
+ 		}
+-		return matched.size === max;
+ 	});
+ 
+-	// 完全一致（エイリアス込み）
+-	if (matched.size < max) {
+-		emojiDb.some(x => {
+-			if (x.name === query && !matched.has(x.aliasOf ?? x.name)) {
+-				matched.set(x.aliasOf ?? x.name, { emoji: x, score: query.length + 2 });
+-			}
+-			return matched.size === max;
+-		});
+-	}
+-
+-	// 前方一致（エイリアスなし）
+-	if (matched.size < max) {
+-		emojiDb.some(x => {
+-			if (x.name.startsWith(query) && !x.aliasOf && !matched.has(x.name)) {
+-				matched.set(x.name, { emoji: x, score: query.length + 1 });
+-			}
+-			return matched.size === max;
+-		});
+-	}
++	const ranked = [...bestPerEmoji.entries()].sort(([, x], [, y]) => y.score - x.score || x.dbIndex - y.dbIndex);
++	return new Map(ranked);
++}
+ 
+-	// 前方一致（エイリアス込み）
+-	if (matched.size < max) {
+-		emojiDb.some(x => {
+-			if (x.name.startsWith(query) && !matched.has(x.aliasOf ?? x.name)) {
+-				matched.set(x.aliasOf ?? x.name, { emoji: x, score: query.length });
+-			}
+-			return matched.size === max;
+-		});
+-	}
++function topByScore(matched: Map<string, EmojiScore>, max: number): EmojiDef[] {
++	return [...matched.values()]
++		.sort((x, y) => y.score - x.score)
++		.slice(0, max)
++		.map(it => it.emoji);
++}
+ 
+-	// 部分一致（エイリアス込み）
+-	if (matched.size < max) {
+-		emojiDb.some(x => {
+-			if (x.name.includes(query) && !matched.has(x.aliasOf ?? x.name)) {
+-				matched.set(x.aliasOf ?? x.name, { emoji: x, score: query.length - 1 });
+-			}
+-			return matched.size === max;
+-		});
++function countQueryCharsFoundInOrder(queryChars: string[], name: string): number {
++	let pos = 0;
++	let found = 0;
++	for (const c of queryChars) {
++		pos = name.indexOf(c, pos);
++		if (pos <= -1) break;
++		found++;
+ 	}
++	return found;
++}
+ 
+-	// 簡易あいまい検索（3文字以上）
+-	if (matched.size < max && query.length > 3) {
+-		const queryChars = [...query];
+-		const hitEmojis = new Map<string, EmojiScore>();
+-
+-		for (const x of emojiDb) {
+-			// 文字列の位置を進めながら、クエリの文字を順番に探す
+-
+-			let pos = 0;
+-			let hit = 0;
+-			for (const c of queryChars) {
+-				pos = x.name.indexOf(c, pos);
+-				if (pos <= -1) break;
+-				hit++;
+-			}
+-
+-			// 半分以上の文字が含まれていればヒットとする
+-			if (hit > Math.ceil(queryChars.length / 2) && hit - 2 > (matched.get(x.aliasOf ?? x.name)?.score ?? 0)) {
+-				hitEmojis.set(x.aliasOf ?? x.name, { emoji: x, score: hit - 2 });
+-			}
++// 全ヒットを足すと雑多になるので、オートコンプリートのポップアップに収まる数だけ採用する
++function fuzzyHits(query: string, emojiDb: EmojiDef[], matched: Map<string, EmojiScore>): EmojiScore[] {
++	const queryChars = [...query];
++	const minFound = Math.ceil(queryChars.length / 2);
++	const hits = new Map<string, EmojiScore>();
++
++	for (const x of emojiDb) {
++		const found = countQueryCharsFoundInOrder(queryChars, x.name);
++		const score = found - 2;
++		const alreadyScored = matched.get(originalNameOf(x))?.score ?? 0;
++		if (found > minFound && score > alreadyScored) {
++			hits.set(originalNameOf(x), { emoji: x, score });
+ 		}
+-
+-		// ヒットしたものを全部追加すると雑多になるので、先頭の6件程度だけにしておく（6件＝オートコンプリートのポップアップのサイズ分）
+-		[...hitEmojis.values()]
+-			.sort((x, y) => y.score - x.score)
+-			.slice(0, 6)
+-			.forEach(it => matched.set(it.emoji.name, it));
+ 	}
+ 
+-	return [...matched.values()]
++	return [...hits.values()]
+ 		.sort((x, y) => y.score - x.score)
+-		.slice(0, max)
+-		.map(it => it.emoji);
++		.slice(0, AUTOCOMPLETE_POPUP_SIZE);
+ }
+ 
+-export function searchEmojiExact(query: string | null, emojiDb: EmojiDef[], max = 30): EmojiDef[] {
++export function searchEmoji(query: string | null, emojiDb: EmojiDef[], max = 30): EmojiDef[] {
+ 	if (!query) {
+ 		return [];
+ 	}
+ 
+-	const matched = new Map<string, EmojiScore>();
+-	// 完全一致（エイリアスなし）
+-	emojiDb.some(x => {
+-		if (x.name === query && !x.aliasOf) {
+-			matched.set(x.name, { emoji: x, score: query.length + 3 });
++	const matched = rankByNameMatch(query, emojiDb);
++
++	if (matched.size < max && query.length >= FUZZY_MIN_QUERY_LENGTH) {
++		for (const it of fuzzyHits(query, emojiDb, matched)) {
++			matched.set(it.emoji.name, it);
+ 		}
+-		return matched.size === max;
+-	});
++	}
+ 
+-	// 完全一致（エイリアス込み）
+-	if (matched.size < max) {
+-		emojiDb.some(x => {
+-			if (x.name === query && !matched.has(x.aliasOf ?? x.name)) {
+-				matched.set(x.aliasOf ?? x.name, { emoji: x, score: query.length + 2 });
+-			}
+-			return matched.size === max;
+-		});
++	return topByScore(matched, max);
++}
++
++export function searchEmojiExact(query: string | null, emojiDb: EmojiDef[], max = 30): EmojiDef[] {
++	if (!query) {
++		return [];
+ 	}
+ 
+-	return [...matched.values()]
+-		.sort((x, y) => y.score - x.score)
+-		.slice(0, max)
+-		.map(it => it.emoji);
++	return topByScore(rankByNameMatch(query, emojiDb.filter(x => x.name === query)), max);
+ }
+diff --git a/packages/frontend/test/unit/search-emoji.test.ts b/packages/frontend/test/unit/search-emoji.test.ts
+new file mode 100644
+index 0000000000..b6809b8159
+--- /dev/null
++++ b/packages/frontend/test/unit/search-emoji.test.ts
+@@ -0,0 +1,48 @@
++/*
++ * SPDX-FileCopyrightText: syuilo and misskey-project
++ * SPDX-License-Identifier: AGPL-3.0-only
++ */
++
++import { describe, test, assert } from 'vitest';
++import { searchEmoji, searchEmojiExact } from '@/utility/search-emoji.js';
++import type { EmojiDef } from '@/utility/search-emoji.js';
++
++const db: EmojiDef[] = [
++	{ emoji: '🐱', name: 'cat', url: 'a' },
++	{ emoji: '🐱', name: 'neko', aliasOf: 'cat', url: 'a' },
++	{ emoji: '🐈', name: 'catfish', url: 'b' },
++	{ emoji: '🍣', name: 'sushi', url: 'c' },
++	{ emoji: '🪄', name: 'scatter', url: 'd' },
++];
++const names = (xs: EmojiDef[]) => xs.map(x => x.name);
++
++describe('searchEmoji', () => {
++	test('empty query returns nothing', () => {
++		assert.deepStrictEqual(searchEmoji('', db), []);
++		assert.deepStrictEqual(searchEmoji(null, db), []);
++	});
++
++	test('exact > prefix > substring', () => {
++		assert.deepStrictEqual(names(searchEmoji('cat', db)), ['cat', 'catfish', 'scatter']);
++	});
++
++	test('alias is reported once under the original emoji', () => {
++		assert.deepStrictEqual(names(searchEmoji('neko', db)), ['neko']);
++	});
++
++	test('max limits the result', () => {
++		assert.strictEqual(searchEmoji('cat', db, 2).length, 2);
++	});
++
++	test('fuzzy match kicks in for queries longer than 3 characters', () => {
++		assert.ok(names(searchEmoji('sshi', db)).includes('sushi'));
++		assert.deepStrictEqual(names(searchEmoji('zz', db)), []);
++	});
++});
++
++describe('searchEmojiExact', () => {
++	test('only exact names', () => {
++		assert.deepStrictEqual(names(searchEmojiExact('cat', db)), ['cat']);
++		assert.deepStrictEqual(names(searchEmojiExact('cat', db, 1)), ['cat']);
++	});
++});
+-- 
+2.43.0
+

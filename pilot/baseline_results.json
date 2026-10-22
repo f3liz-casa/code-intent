@@ -1,0 +1,42 @@
+{
+ "sqlite": {
+  "functions": 8238,
+  "median_lines": 18.0,
+  "p90_lines": 70.0,
+  "comment_per_100_lines": 7.420241909029363,
+  "doc_comment_share": 0.802257829570284,
+  "mean_max_nesting": 1.7524884680747754,
+  "files_with_3plus_funcs": 279,
+  "within_file_cohesion": 0.5231690505395766
+ },
+ "quickjs": {
+  "functions": 1499,
+  "median_lines": 14.0,
+  "p90_lines": 83.20000000000005,
+  "comment_per_100_lines": 2.9973643551758613,
+  "doc_comment_share": 0.256837891927952,
+  "mean_max_nesting": 1.7278185456971313,
+  "files_with_3plus_funcs": 41,
+  "within_file_cohesion": 0.5084452515965131
+ },
+ "julia": {
+  "functions": 10136,
+  "median_lines": 9.0,
+  "p90_lines": 31.0,
+  "comment_per_100_lines": 9.003722356032407,
+  "doc_comment_share": 0.1845895816890292,
+  "mean_max_nesting": 0.95491318074191,
+  "files_with_3plus_funcs": 482,
+  "within_file_cohesion": 0.5572631947868053
+ },
+ "firefox": {
+  "functions": 9564,
+  "median_lines": 10.0,
+  "p90_lines": 45.0,
+  "comment_per_100_lines": 10.170215865769856,
+  "doc_comment_share": 0.15579255541614387,
+  "mean_max_nesting": 0.9682141363446257,
+  "files_with_3plus_funcs": 359,
+  "within_file_cohesion": 0.5421996422618878
+ }
+}

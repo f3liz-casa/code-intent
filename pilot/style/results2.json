@@ -1,0 +1,264 @@
+{
+ "unixcoder": {
+  "raw": {
+   "analogy_row_acc": 0.38333333333333336,
+   "analogy_pool_acc": 0.38333333333333336,
+   "copy_baseline_pool_acc": 0.24166666666666667,
+   "heldout_intent_style_acc_centered": 0.9,
+   "heldout_intent_style_acc_uncentered": 0.75,
+   "style_vec_cos": [
+    [
+     1.0,
+     -0.15000000596046448,
+     -0.1599999964237213,
+     -0.30000001192092896,
+     -0.23000000417232513
+    ],
+    [
+     -0.15000000596046448,
+     1.0,
+     -0.33000001311302185,
+     -0.4000000059604645,
+     -0.4000000059604645
+    ],
+    [
+     -0.1599999964237213,
+     -0.33000001311302185,
+     1.0,
+     -0.27000001072883606,
+     -0.009999999776482582
+    ],
+    [
+     -0.30000001192092896,
+     -0.4000000059604645,
+     -0.27000001072883606,
+     1.0,
+     -0.18000000715255737
+    ],
+    [
+     -0.23000000417232513,
+     -0.4000000059604645,
+     -0.009999999776482582,
+     -0.18000000715255737,
+     1.0
+    ]
+   ],
+   "style_vec_norm": [
+    0.20000000298023224,
+    0.2849999964237213,
+    0.20000000298023224,
+    0.26499998569488525,
+    0.20900000631809235
+   ],
+   "var_intent": 0.6153845191001892,
+   "var_style": 0.072016142308712,
+   "real_nearest_style_share": {
+    "argparse": {
+     "P": 0.1,
+     "O": 0.45,
+     "F": 0.1,
+     "D": 0.03,
+     "G": 0.33
+    },
+    "collections": {
+     "P": 0.27,
+     "O": 0.38,
+     "F": 0.08,
+     "D": 0.08,
+     "G": 0.19
+    },
+    "networkx_paths": {
+     "P": 0.45,
+     "O": 0.09,
+     "F": 0.09,
+     "D": 0.0,
+     "G": 0.36
+    },
+    "numpy_lib": {
+     "P": 0.2,
+     "O": 0.05,
+     "F": 0.0,
+     "D": 0.5,
+     "G": 0.25
+    },
+    "statistics": {
+     "P": 0.64,
+     "O": 0.0,
+     "F": 0.12,
+     "D": 0.12,
+     "G": 0.12
+    }
+   },
+   "real_spread": {
+    "argparse": 0.099,
+    "collections": 0.146,
+    "networkx_paths": 0.094,
+    "numpy_lib": 0.149,
+    "statistics": 0.116
+   },
+   "outlier_auc": {
+    "argparse": 0.88,
+    "collections": 0.62,
+    "networkx_paths": 0.73,
+    "numpy_lib": 0.72,
+    "statistics": 0.84
+   },
+   "posthoc_spearman": {
+    "PC1": {
+     "mutation": -0.44,
+     "object_binding": -0.6,
+     "explicit_iteration": -0.16,
+     "columnar_batch": 0.35
+    },
+    "PC2": {
+     "mutation": -0.18,
+     "object_binding": -0.03,
+     "explicit_iteration": 0.16,
+     "columnar_batch": -0.4
+    },
+    "PC3": {
+     "mutation": -0.26,
+     "object_binding": -0.44,
+     "explicit_iteration": 0.04,
+     "columnar_batch": -0.07
+    },
+    "PC4": {
+     "mutation": -0.0,
+     "object_binding": 0.08,
+     "explicit_iteration": 0.06,
+     "columnar_batch": 0.01
+    }
+   }
+  },
+  "hashed": {
+   "analogy_row_acc": 0.37916666666666665,
+   "analogy_pool_acc": 0.3416666666666667,
+   "copy_baseline_pool_acc": 0.20833333333333334,
+   "heldout_intent_style_acc_centered": 0.8166666666666667,
+   "heldout_intent_style_acc_uncentered": 0.7666666666666667,
+   "style_vec_cos": [
+    [
+     1.0,
+     -0.25999999046325684,
+     -0.3100000023841858,
+     -0.23999999463558197,
+     0.0
+    ],
+    [
+     -0.25999999046325684,
+     1.0,
+     -0.36000001430511475,
+     -0.18000000715255737,
+     -0.5899999737739563
+    ],
+    [
+     -0.3100000023841858,
+     -0.36000001430511475,
+     1.0,
+     -0.27000001072883606,
+     0.14000000059604645
+    ],
+    [
+     -0.23999999463558197,
+     -0.18000000715255737,
+     -0.27000001072883606,
+     1.0,
+     -0.3499999940395355
+    ],
+    [
+     0.0,
+     -0.5899999737739563,
+     0.14000000059604645,
+     -0.3499999940395355,
+     1.0
+    ]
+   ],
+   "style_vec_norm": [
+    0.18299999833106995,
+    0.2840000092983246,
+    0.18799999356269836,
+    0.2240000069141388,
+    0.2199999988079071
+   ],
+   "var_intent": 0.45952481031417847,
+   "var_style": 0.11227503418922424,
+   "real_nearest_style_share": {
+    "argparse": {
+     "P": 0.28,
+     "O": 0.62,
+     "F": 0.0,
+     "D": 0.05,
+     "G": 0.05
+    },
+    "collections": {
+     "P": 0.31,
+     "O": 0.31,
+     "F": 0.19,
+     "D": 0.12,
+     "G": 0.08
+    },
+    "networkx_paths": {
+     "P": 0.09,
+     "O": 0.64,
+     "F": 0.09,
+     "D": 0.09,
+     "G": 0.09
+    },
+    "numpy_lib": {
+     "P": 0.2,
+     "O": 0.35,
+     "F": 0.1,
+     "D": 0.3,
+     "G": 0.05
+    },
+    "statistics": {
+     "P": 0.12,
+     "O": 0.18,
+     "F": 0.27,
+     "D": 0.39,
+     "G": 0.03
+    }
+   },
+   "real_spread": {
+    "argparse": 0.123,
+    "collections": 0.144,
+    "networkx_paths": 0.109,
+    "numpy_lib": 0.117,
+    "statistics": 0.126
+   },
+   "outlier_auc": {
+    "argparse": 0.71,
+    "collections": 0.47,
+    "networkx_paths": 0.73,
+    "numpy_lib": 0.59,
+    "statistics": 0.55
+   },
+   "posthoc_spearman": {
+    "PC1": {
+     "mutation": 0.3,
+     "object_binding": 0.11,
+     "explicit_iteration": 0.01,
+     "columnar_batch": 0.1
+    },
+    "PC2": {
+     "mutation": -0.12,
+     "object_binding": -0.39,
+     "explicit_iteration": -0.18,
+     "columnar_batch": 0.23
+    },
+    "PC3": {
+     "mutation": -0.07,
+     "object_binding": -0.09,
+     "explicit_iteration": -0.25,
+     "columnar_batch": -0.02
+    },
+    "PC4": {
+     "mutation": -0.13,
+     "object_binding": -0.33,
+     "explicit_iteration": 0.03,
+     "columnar_batch": 0.01
+    }
+   }
+  }
+ }
+}

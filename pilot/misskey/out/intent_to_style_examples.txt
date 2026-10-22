@@ -1,0 +1,27 @@
+intent: layer=fe:util category=pure verb=search  ->  217 units; by step: layer+category+verb=2, layer+category=215
+
+in fe:util (n=217)
+    46%  s6:-uses_this,-in_class,-loc           median loc    5  cyc    2  async 5%  e.g. utility/get-user-environment.ts:59 .getViaUa
+    26%  s0:+uses_this,+in_class,-cyc           median loc    7  cyc    2  async 4%  e.g. lib/nirax.ts:439 Nirax.push
+    21%  s2:+depth,+mutate,-in_class            median loc 16.0  cyc  4.0  async 11%  e.g. utility/check-word-mute.ts:35 .getCleanedKeywords
+     4%  s3:+ternary,+cyc,+chain                median loc   46  cyc    9  async 22%  e.g. lib/ImageCompositor.ts:134 ImageCompositor.renderLayer
+     2%  s5:+switch,+cyc,+loc                   median loc 37.5  cyc 15.0  async 0%  e.g. utility/theme-editor.ts:51 .toThemeString
+     0%  s1:+thens,+depth,+loc                  median loc    8  cyc    1  async 0%  e.g. lib/pizzax.ts:63 Pizzax.addIdbSetJob
+     0%  s4:+try,+throw,+awaits                 median loc   19  cyc    4  async 0%  e.g. utility/check-word-mute.ts:15 .getCompiledRegex
+------
+intent: layer=be:service category=write verb=create  ->  19 units; by step: layer+category+verb=19
+
+in be:service (n=19)
+    74%  s0:+uses_this,+in_class,-cyc           median loc 27.0  cyc  2.0  async 93%  e.g. core/NotificationService.ts:79 NotificationService.createNotification
+    16%  s3:+ternary,+cyc,+chain                median loc   69  cyc   12  async 100%  e.g. core/ChatService.ts:133 ChatService.createMessageToUser
+     5%  s5:+switch,+cyc,+loc                   median loc  202  cyc   77  async 100%  e.g. core/NoteCreateService.ts:441 NoteCreateService.create
+     5%  s4:+try,+throw,+awaits                 median loc  184  cyc   55  async 100%  e.g. core/ReactionService.ts:105 ReactionService.create
+------
+intent: layer=be:endpoint category=read verb=None  ->  239 units; by step: layer+category=239
+
+in be:endpoint (n=239)
+    64%  s0:+uses_this,+in_class,-cyc           median loc 11.5  cyc  2.0  async 100%  e.g. server/api/endpoints/clips/list.ts:52 <anon>.<handler>
+    23%  s3:+ternary,+cyc,+chain                median loc 35.0  cyc  8.0  async 100%  e.g. server/api/endpoints/bubble-game/ranking.ts:61 <anon>.<handler>
+     8%  s4:+try,+throw,+awaits                 median loc   33  cyc    8  async 100%  e.g. server/api/endpoints/clips/create.ts:53 <anon>.<handler>
+     5%  s5:+switch,+cyc,+loc                   median loc 35.0  cyc 13.0  async 100%  e.g. server/api/endpoints/admin/abuse-user-reports.ts:119 <anon>.<handler>
+------

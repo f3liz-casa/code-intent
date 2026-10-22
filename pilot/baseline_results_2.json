@@ -1,0 +1,42 @@
+{
+ "lavandula": {
+  "functions": 353,
+  "median_lines": 10.0,
+  "p90_lines": 22.80000000000001,
+  "comment_per_100_lines": 1.2522722682286407,
+  "doc_comment_share": 0.031161473087818695,
+  "mean_max_nesting": 0.5694050991501416,
+  "files_with_3plus_funcs": 26,
+  "within_file_cohesion": 0.719471289426077
+ },
+ "pandoc": {
+  "functions": 3910,
+  "median_lines": 7.0,
+  "p90_lines": 28.0,
+  "comment_per_100_lines": 4.633823556823054,
+  "doc_comment_share": 0.021739130434782608,
+  "mean_max_nesting": 0.0,
+  "files_with_3plus_funcs": 192,
+  "within_file_cohesion": 0.364482307301731
+ },
+ "firefox_js": {
+  "functions": 1310,
+  "median_lines": 12.0,
+  "p90_lines": 42.0,
+  "comment_per_100_lines": 8.633674018289403,
+  "doc_comment_share": 0.4816793893129771,
+  "mean_max_nesting": 0.9496183206106871,
+  "files_with_3plus_funcs": 95,
+  "within_file_cohesion": 0.5510389271878731
+ },
+ "firefox_js_browser": {
+  "functions": 223,
+  "median_lines": 15.0,
+  "p90_lines": 57.80000000000001,
+  "comment_per_100_lines": 8.938089380893809,
+  "doc_comment_share": 0.19282511210762332,
+  "mean_max_nesting": 1.031390134529148,
+  "files_with_3plus_funcs": 15,
+  "within_file_cohesion": 0.5432218288433786
+ }
+}

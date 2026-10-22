@@ -1,0 +1,2422 @@
+{
+ "style_clusters": {
+  "s0:+uses_this,+in_class,-cyc": 1329,
+  "s1:+thens,+depth,+loc": 19,
+  "s2:+depth,+mutate,-in_class": 854,
+  "s3:+ternary,+cyc,+chain": 360,
+  "s4:+try,+throw,+awaits": 180,
+  "s5:+switch,+cyc,+loc": 135,
+  "s6:-uses_this,-in_class,-loc": 1727
+ },
+ "layer_style": {
+  "fe:component": {
+   "s0:+uses_this,+in_class,-cyc": 0.0,
+   "s1:+thens,+depth,+loc": 0.001,
+   "s2:+depth,+mutate,-in_class": 0.285,
+   "s3:+ternary,+cyc,+chain": 0.024,
+   "s4:+try,+throw,+awaits": 0.002,
+   "s5:+switch,+cyc,+loc": 0.046,
+   "s6:-uses_this,-in_class,-loc": 0.642
+  },
+  "fe:page": {
+   "s0:+uses_this,+in_class,-cyc": 0.0,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.343,
+   "s3:+ternary,+cyc,+chain": 0.015,
+   "s4:+try,+throw,+awaits": 0.009,
+   "s5:+switch,+cyc,+loc": 0.021,
+   "s6:-uses_this,-in_class,-loc": 0.612
+  },
+  "be:service": {
+   "s0:+uses_this,+in_class,-cyc": 0.644,
+   "s1:+thens,+depth,+loc": 0.001,
+   "s2:+depth,+mutate,-in_class": 0.023,
+   "s3:+ternary,+cyc,+chain": 0.133,
+   "s4:+try,+throw,+awaits": 0.054,
+   "s5:+switch,+cyc,+loc": 0.044,
+   "s6:-uses_this,-in_class,-loc": 0.1
+  },
+  "be:endpoint": {
+   "s0:+uses_this,+in_class,-cyc": 0.707,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.0,
+   "s3:+ternary,+cyc,+chain": 0.155,
+   "s4:+try,+throw,+awaits": 0.098,
+   "s5:+switch,+cyc,+loc": 0.031,
+   "s6:-uses_this,-in_class,-loc": 0.009
+  },
+  "fe:util": {
+   "s0:+uses_this,+in_class,-cyc": 0.211,
+   "s1:+thens,+depth,+loc": 0.022,
+   "s2:+depth,+mutate,-in_class": 0.267,
+   "s3:+ternary,+cyc,+chain": 0.068,
+   "s4:+try,+throw,+awaits": 0.019,
+   "s5:+switch,+cyc,+loc": 0.019,
+   "s6:-uses_this,-in_class,-loc": 0.394
+  },
+  "fe:module": {
+   "s0:+uses_this,+in_class,-cyc": 0.114,
+   "s1:+thens,+depth,+loc": 0.012,
+   "s2:+depth,+mutate,-in_class": 0.388,
+   "s3:+ternary,+cyc,+chain": 0.037,
+   "s4:+try,+throw,+awaits": 0.016,
+   "s5:+switch,+cyc,+loc": 0.029,
+   "s6:-uses_this,-in_class,-loc": 0.404
+  },
+  "be:misc": {
+   "s0:+uses_this,+in_class,-cyc": 0.22,
+   "s1:+thens,+depth,+loc": 0.006,
+   "s2:+depth,+mutate,-in_class": 0.171,
+   "s3:+ternary,+cyc,+chain": 0.0,
+   "s4:+try,+throw,+awaits": 0.043,
+   "s5:+switch,+cyc,+loc": 0.0,
+   "s6:-uses_this,-in_class,-loc": 0.561
+  },
+  "be:activitypub": {
+   "s0:+uses_this,+in_class,-cyc": 0.64,
+   "s1:+thens,+depth,+loc": 0.013,
+   "s2:+depth,+mutate,-in_class": 0.04,
+   "s3:+ternary,+cyc,+chain": 0.093,
+   "s4:+try,+throw,+awaits": 0.053,
+   "s5:+switch,+cyc,+loc": 0.007,
+   "s6:-uses_this,-in_class,-loc": 0.153
+  },
+  "be:entity-pack": {
+   "s0:+uses_this,+in_class,-cyc": 0.49,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.034,
+   "s3:+ternary,+cyc,+chain": 0.374,
+   "s4:+try,+throw,+awaits": 0.02,
+   "s5:+switch,+cyc,+loc": 0.0,
+   "s6:-uses_this,-in_class,-loc": 0.082
+  },
+  "be:server": {
+   "s0:+uses_this,+in_class,-cyc": 0.407,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.106,
+   "s3:+ternary,+cyc,+chain": 0.138,
+   "s4:+try,+throw,+awaits": 0.146,
+   "s5:+switch,+cyc,+loc": 0.008,
+   "s6:-uses_this,-in_class,-loc": 0.195
+  },
+  "be:other": {
+   "s0:+uses_this,+in_class,-cyc": 0.319,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.126,
+   "s3:+ternary,+cyc,+chain": 0.076,
+   "s4:+try,+throw,+awaits": 0.076,
+   "s5:+switch,+cyc,+loc": 0.008,
+   "s6:-uses_this,-in_class,-loc": 0.395
+  },
+  "be:stream": {
+   "s0:+uses_this,+in_class,-cyc": 0.79,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.01,
+   "s3:+ternary,+cyc,+chain": 0.12,
+   "s4:+try,+throw,+awaits": 0.0,
+   "s5:+switch,+cyc,+loc": 0.08,
+   "s6:-uses_this,-in_class,-loc": 0.0
+  },
+  "fe:ui-shell": {
+   "s0:+uses_this,+in_class,-cyc": 0.0,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.26,
+   "s3:+ternary,+cyc,+chain": 0.068,
+   "s4:+try,+throw,+awaits": 0.0,
+   "s5:+switch,+cyc,+loc": 0.0,
+   "s6:-uses_this,-in_class,-loc": 0.671
+  },
+  "pkg:frontend-shared": {
+   "s0:+uses_this,+in_class,-cyc": 0.127,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.197,
+   "s3:+ternary,+cyc,+chain": 0.056,
+   "s4:+try,+throw,+awaits": 0.014,
+   "s5:+switch,+cyc,+loc": 0.028,
+   "s6:-uses_this,-in_class,-loc": 0.577
+  },
+  "be:queue-processor": {
+   "s0:+uses_this,+in_class,-cyc": 0.375,
+   "s1:+thens,+depth,+loc": 0.016,
+   "s2:+depth,+mutate,-in_class": 0.0,
+   "s3:+ternary,+cyc,+chain": 0.156,
+   "s4:+try,+throw,+awaits": 0.312,
+   "s5:+switch,+cyc,+loc": 0.031,
+   "s6:-uses_this,-in_class,-loc": 0.109
+  },
+  "fe-embed": {
+   "s0:+uses_this,+in_class,-cyc": 0.0,
+   "s1:+thens,+depth,+loc": 0.038,
+   "s2:+depth,+mutate,-in_class": 0.226,
+   "s3:+ternary,+cyc,+chain": 0.0,
+   "s4:+try,+throw,+awaits": 0.019,
+   "s5:+switch,+cyc,+loc": 0.0,
+   "s6:-uses_this,-in_class,-loc": 0.717
+  },
+  "fe:preferences": {
+   "s0:+uses_this,+in_class,-cyc": 0.245,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.245,
+   "s3:+ternary,+cyc,+chain": 0.041,
+   "s4:+try,+throw,+awaits": 0.061,
+   "s5:+switch,+cyc,+loc": 0.0,
+   "s6:-uses_this,-in_class,-loc": 0.408
+  },
+  "fe:widget": {
+   "s0:+uses_this,+in_class,-cyc": 0.0,
+   "s1:+thens,+depth,+loc": 0.0,
+   "s2:+depth,+mutate,-in_class": 0.362,
+   "s3:+ternary,+cyc,+chain": 0.0,
+   "s4:+try,+throw,+awaits": 0.064,
+   "s5:+switch,+cyc,+loc": 0.0,
+   "s6:-uses_this,-in_class,-loc": 0.574
+  }
+ },
+ "layer_style_entropy_bits": {
+  "fe:component": 1.29,
+  "fe:page": 1.23,
+  "be:service": 1.69,
+  "be:endpoint": 1.31,
+  "fe:util": 2.11,
+  "fe:module": 1.91,
+  "be:misc": 1.62,
+  "be:activitypub": 1.69,
+  "be:entity-pack": 1.61,
+  "be:server": 2.19,
+  "be:other": 2.05,
+  "be:stream": 0.99,
+  "fe:ui-shell": 1.16,
+  "pkg:frontend-shared": 1.76,
+  "be:queue-processor": 2.07,
+  "fe-embed": 1.12,
+  "fe:preferences": 1.96,
+  "fe:widget": 1.24
+ },
+ "layer_cat": {
+  "fe:component": {
+   "read": 99,
+   "ui": 242,
+   "pure": 402,
+   "state": 104
+  },
+  "fe:page": {
+   "pure": 238,
+   "state": 62,
+   "ui": 129,
+   "read": 324
+  },
+  "be:service": {
+   "emit": 85,
+   "write": 231,
+   "read": 158,
+   "delegate": 30,
+   "pure": 224
+  },
+  "be:endpoint": {
+   "read": 239,
+   "delegate": 64,
+   "write": 81,
+   "emit": 44,
+   "pure": 23
+  },
+  "fe:util": {
+   "pure": 217,
+   "read": 33,
+   "emit": 1,
+   "state": 55,
+   "ui": 16
+  },
+  "fe:module": {
+   "pure": 120,
+   "state": 101,
+   "ui": 12,
+   "read": 12
+  },
+  "be:misc": {
+   "write": 16,
+   "pure": 144,
+   "read": 3,
+   "state": 1
+  },
+  "be:activitypub": {
+   "emit": 40,
+   "pure": 55,
+   "delegate": 9,
+   "read": 31,
+   "write": 15
+  },
+  "be:entity-pack": {
+   "read": 108,
+   "pure": 30,
+   "delegate": 5,
+   "write": 2,
+   "emit": 2
+  },
+  "be:server": {
+   "pure": 64,
+   "emit": 14,
+   "read": 14,
+   "write": 25,
+   "delegate": 6
+  },
+  "be:other": {
+   "pure": 108,
+   "read": 3,
+   "write": 3,
+   "delegate": 2,
+   "state": 2,
+   "emit": 1
+  },
+  "be:stream": {
+   "delegate": 16,
+   "pure": 67,
+   "read": 17
+  },
+  "fe:ui-shell": {
+   "pure": 32,
+   "state": 16,
+   "ui": 19,
+   "read": 6
+  },
+  "pkg:frontend-shared": {
+   "pure": 57,
+   "state": 13,
+   "ui": 1
+  },
+  "be:queue-processor": {
+   "write": 19,
+   "delegate": 8,
+   "read": 15,
+   "pure": 15,
+   "emit": 7
+  },
+  "fe-embed": {
+   "pure": 36,
+   "state": 10,
+   "read": 7
+  },
+  "fe:preferences": {
+   "pure": 31,
+   "state": 7,
+   "ui": 4,
+   "read": 7
+  },
+  "fe:widget": {
+   "state": 9,
+   "pure": 25,
+   "ui": 5,
+   "read": 6,
+   "emit": 2
+  }
+ },
+ "MI_style_cat_given_layer": {
+  "observed_bits": 0.1797,
+  "shuffle_mean": 0.0418,
+  "shuffle_p99": 0.0483
+ },
+ "MI_per_layer": {
+  "fe:component": {
+   "n": 847,
+   "mi": 0.049,
+   "null_mean": 0.013,
+   "z": 9.2
+  },
+  "fe:page": {
+   "n": 753,
+   "mi": 0.058,
+   "null_mean": 0.013,
+   "z": 9.6
+  },
+  "be:service": {
+   "n": 728,
+   "mi": 0.261,
+   "null_mean": 0.024,
+   "z": 34.8
+  },
+  "be:endpoint": {
+   "n": 451,
+   "mi": 0.117,
+   "null_mean": 0.027,
+   "z": 11.1
+  },
+  "fe:util": {
+   "n": 322,
+   "mi": 0.141,
+   "null_mean": 0.051,
+   "z": 6.3
+  },
+  "fe:module": {
+   "n": 245,
+   "mi": 0.173,
+   "null_mean": 0.053,
+   "z": 8.4
+  },
+  "be:misc": {
+   "n": 164,
+   "mi": 0.161,
+   "null_mean": 0.042,
+   "z": 7.1
+  },
+  "be:activitypub": {
+   "n": 150,
+   "mi": 0.513,
+   "null_mean": 0.118,
+   "z": 14.7
+  },
+  "be:entity-pack": {
+   "n": 147,
+   "mi": 0.411,
+   "null_mean": 0.067,
+   "z": 14.6
+  },
+  "be:server": {
+   "n": 123,
+   "mi": 0.421,
+   "null_mean": 0.121,
+   "z": 9.0
+  },
+  "be:other": {
+   "n": 119,
+   "mi": 0.175,
+   "null_mean": 0.119,
+   "z": 2.1
+  },
+  "be:stream": {
+   "n": 100,
+   "mi": 0.277,
+   "null_mean": 0.043,
+   "z": 10.2
+  },
+  "fe:ui-shell": {
+   "n": 73,
+   "mi": 0.328,
+   "null_mean": 0.067,
+   "z": 7.7
+  },
+  "pkg:frontend-shared": {
+   "n": 71,
+   "mi": 0.186,
+   "null_mean": 0.078,
+   "z": 3.3
+  },
+  "be:queue-processor": {
+   "n": 64,
+   "mi": 0.977,
+   "null_mean": 0.236,
+   "z": 12.5
+  },
+  "fe-embed": {
+   "n": 53,
+   "mi": 0.236,
+   "null_mean": 0.082,
+   "z": 3.6
+  },
+  "fe:preferences": {
+   "n": 49,
+   "mi": 0.299,
+   "null_mean": 0.201,
+   "z": 1.4
+  },
+  "fe:widget": {
+   "n": 47,
+   "mi": 0.441,
+   "null_mean": 0.14,
+   "z": 4.8
+  }
+ },
+ "conventions": {
+  "vue: <script setup lang=ts>": {
+   "n": 592,
+   "ok": 592,
+   "rate": 1.0
+  },
+  "vue: type-only defineProps (among files with props)": {
+   "n": 415,
+   "ok": 415,
+   "rate": 1.0
+  },
+  "vue: type-only defineEmits (among files with emits)": {
+   "n": 196,
+   "ok": 196,
+   "rate": 1.0
+  },
+  "vue: scss module (among files with style)": {
+   "n": 460,
+   "ok": 425,
+   "rate": 0.924
+  },
+  "vue: no native alert/confirm/prompt": {
+   "n": 592,
+   "ok": 591,
+   "rate": 0.998
+  },
+  "vue: no literal text nodes (i18n)": {
+   "n": 592,
+   "ok": 526,
+   "rate": 0.889
+  },
+  "vue: Options API leftovers": {
+   "n": 592,
+   "ok": 0,
+   "rate": 0.0
+  },
+  "spdx header (all)": {
+   "n": 1861,
+   "ok": 1847,
+   "rate": 0.992
+  },
+  "be: service files with @Injectable": {
+   "n": 99,
+   "ok": 95,
+   "rate": 0.96
+  },
+  "be: endpoints extend Endpoint": {
+   "n": 438,
+   "ok": 438,
+   "rate": 1.0
+  },
+  "be: injectable classes using @bindThis": {
+   "n": 238,
+   "ok": 229,
+   "rate": 0.962
+  },
+  "be: files with `any`": {
+   "n": 942,
+   "ok": 869,
+   "rate": 0.923
+  },
+  "all: no @ts-ignore/@ts-expect-error": {
+   "n": 1861,
+   "ok": 1846,
+   "rate": 0.992
+  },
+  "_ctor param styles": {
+   "service:type-only": 597,
+   "repo:inject": 286,
+   "repo:type-only": 6,
+   "service:inject": 1
+  }
+ },
+ "verb_vs_category": {
+  "use": {
+   "pure": 12,
+   "read": 2,
+   "write": 1,
+   "ui": 4,
+   "state": 11
+  },
+  "dispose": {
+   "read": 12,
+   "pure": 45,
+   "delegate": 2,
+   "state": 2
+  },
+  "on": {
+   "read": 73,
+   "write": 3,
+   "emit": 2,
+   "pure": 225,
+   "delegate": 9,
+   "ui": 120,
+   "state": 39
+  },
+  "init": {
+   "pure": 30,
+   "delegate": 4,
+   "read": 11,
+   "state": 8
+  },
+  "show": {
+   "pure": 11,
+   "ui": 24,
+   "read": 11,
+   "state": 4
+  },
+  "load": {
+   "pure": 4,
+   "write": 1,
+   "read": 6,
+   "state": 3
+  },
+  "write": {
+   "pure": 18,
+   "write": 1
+  },
+  "is": {
+   "pure": 113,
+   "read": 10,
+   "state": 5
+  },
+  "reset": {
+   "delegate": 1,
+   "read": 3,
+   "pure": 12,
+   "state": 4,
+   "ui": 2
+  },
+  "convert": {
+   "pure": 18
+  },
+  "fetch": {
+   "write": 10,
+   "read": 78,
+   "emit": 11,
+   "pure": 15,
+   "delegate": 2,
+   "state": 2
+  },
+  "create": {
+   "write": 29,
+   "pure": 41,
+   "emit": 33,
+   "read": 15,
+   "delegate": 1,
+   "state": 6,
+   "ui": 6
+  },
+  "update": {
+   "write": 24,
+   "delegate": 5,
+   "read": 20,
+   "emit": 2,
+   "pure": 29,
+   "state": 12,
+   "ui": 7
+  },
+  "delete": {
+   "write": 24,
+   "pure": 6,
+   "emit": 2,
+   "read": 12,
+   "state": 3,
+   "ui": 1
+  },
+  "remove": {
+   "write": 12,
+   "read": 7,
+   "emit": 1,
+   "state": 10,
+   "pure": 25,
+   "ui": 5
+  },
+  "resolve": {
+   "write": 6,
+   "pure": 8,
+   "delegate": 1,
+   "emit": 5,
+   "read": 1
+  },
+  "move": {
+   "write": 2,
+   "emit": 1,
+   "read": 5,
+   "ui": 2,
+   "state": 1,
+   "pure": 1
+  },
+  "post": {
+   "write": 3,
+   "emit": 2,
+   "read": 3,
+   "state": 4,
+   "pure": 2
+  },
+  "copy": {
+   "emit": 1,
+   "write": 1,
+   "delegate": 1,
+   "pure": 12,
+   "ui": 1
+  },
+  "validate": {
+   "emit": 2,
+   "read": 1,
+   "write": 1,
+   "pure": 10,
+   "delegate": 2
+  },
+  "publish": {
+   "emit": 3,
+   "write": 16
+  },
+  "get": {
+   "read": 69,
+   "emit": 7,
+   "delegate": 5,
+   "write": 14,
+   "pure": 232,
+   "state": 21,
+   "ui": 3
+  },
+  "read": {
+   "write": 6,
+   "pure": 4,
+   "read": 4
+  },
+  "add": {
+   "write": 10,
+   "pure": 23,
+   "emit": 1,
+   "state": 9,
+   "ui": 18,
+   "read": 9
+  },
+  "check": {
+   "read": 2,
+   "delegate": 3,
+   "write": 4,
+   "pure": 12,
+   "state": 2
+  },
+  "find": {
+   "read": 9,
+   "pure": 3
+  },
+  "save": {
+   "emit": 1,
+   "write": 4,
+   "delegate": 1,
+   "pure": 2,
+   "read": 39,
+   "ui": 9,
+   "state": 8
+  },
+  "normalize": {
+   "pure": 19,
+   "delegate": 1,
+   "emit": 1
+  },
+  "user": {
+   "read": 2,
+   "emit": 2,
+   "pure": 9
+  },
+  "search": {
+   "read": 11,
+   "pure": 10,
+   "state": 1,
+   "ui": 3
+  },
+  "set": {
+   "write": 6,
+   "pure": 46,
+   "state": 12,
+   "ui": 7,
+   "read": 9,
+   "emit": 1
+  },
+  "parse": {
+   "delegate": 2,
+   "pure": 42,
+   "emit": 1
+  },
+  "generate": {
+   "delegate": 3,
+   "read": 14,
+   "pure": 9
+  },
+  "send": {
+   "pure": 9,
+   "emit": 1,
+   "read": 3,
+   "state": 1
+  },
+  "push": {
+   "write": 3,
+   "pure": 10,
+   "read": 1
+  },
+  "calc": {
+   "write": 1,
+   "read": 4,
+   "pure": 20
+  },
+  "gen": {
+   "pure": 19,
+   "ui": 1
+  },
+  "del": {
+   "write": 1,
+   "read": 13,
+   "ui": 3,
+   "state": 3,
+   "pure": 1
+  },
+  "to": {
+   "pure": 16,
+   "delegate": 3
+  },
+  "render": {
+   "emit": 1,
+   "read": 32,
+   "pure": 18,
+   "delegate": 1,
+   "state": 5
+  },
+  "extract": {
+   "delegate": 1,
+   "pure": 15,
+   "emit": 2,
+   "write": 2
+  },
+  "deliver": {
+   "emit": 8,
+   "pure": 5
+  },
+  "clear": {
+   "emit": 1,
+   "pure": 6,
+   "read": 4,
+   "state": 4
+  },
+  "refresh": {
+   "pure": 4,
+   "write": 2,
+   "state": 2,
+   "read": 10,
+   "ui": 1
+  },
+  "pack": {
+   "pure": 4,
+   "read": 92,
+   "delegate": 2,
+   "write": 2,
+   "emit": 3
+  },
+  "start": {
+   "write": 2,
+   "delegate": 1,
+   "pure": 6,
+   "emit": 1,
+   "state": 4,
+   "read": 2,
+   "ui": 5
+  },
+  "cancel": {
+   "write": 3,
+   "delegate": 1,
+   "ui": 18,
+   "read": 3,
+   "pure": 3,
+   "state": 1
+  },
+  "process": {
+   "write": 21,
+   "delegate": 4,
+   "read": 13,
+   "pure": 4,
+   "emit": 7,
+   "ui": 3
+  },
+  "tick": {
+   "pure": 29,
+   "read": 10,
+   "state": 6
+  },
+  "close": {
+   "pure": 17,
+   "ui": 8,
+   "state": 8
+  },
+  "open": {
+   "write": 1,
+   "pure": 12,
+   "ui": 11,
+   "read": 3,
+   "state": 2
+  },
+  "change": {
+   "delegate": 1,
+   "pure": 6,
+   "state": 7,
+   "read": 4
+  },
+  "apply": {
+   "pure": 8,
+   "state": 3,
+   "read": 1,
+   "ui": 2
+  },
+  "main": {
+   "ui": 1,
+   "pure": 19
+  },
+  "select": {
+   "pure": 4,
+   "ui": 7,
+   "state": 3,
+   "read": 2
+  },
+  "choose": {
+   "ui": 11,
+   "pure": 7,
+   "state": 1,
+   "read": 3,
+   "emit": 2
+  },
+  "focus": {
+   "pure": 8,
+   "state": 4
+  },
+  "toggle": {
+   "ui": 7,
+   "state": 4,
+   "pure": 17,
+   "read": 9
+  },
+  "reload": {
+   "pure": 11,
+   "read": 3,
+   "state": 1
+  },
+  "mounted": {
+   "state": 5,
+   "pure": 8
+  },
+  "handler": {
+   "read": 7,
+   "ui": 7,
+   "state": 3,
+   "pure": 4
+  }
+ },
+ "name_vs_effect": {
+  "read-verb performs write/emit": {
+   "n": 962,
+   "mismatch": 65,
+   "rate": 0.068,
+   "desc": "getter-like names that write or emit",
+   "examples": [
+    "core/entities/UserEntityService.ts:405 UserEntityService.pack [db.read,federation.ap,pack.entity,redis.other,redis.read,service.call]",
+    "core/NoteCreateService.ts:276 NoteCreateService.fetchAndCreate [db.read,db.write,event.publish,federation.ap,log,pack.entity,queue.enqueue,redis.other,service.call]",
+    "core/FileInfoService.ts:66 FileInfoService.getFileInfo [crypto.id,fs,log,service.call,stream]",
+    "core/RemoteUserResolveService.ts:42 RemoteUserResolveService.resolveUser [db.read,db.write,federation.ap,log,service.call]",
+    "core/EmailService.ts:166 EmailService.validateEmailForAccount [db.read,net.http,service.call]",
+    "core/entities/PageEntityService.ts:38 PageEntityService.pack [db.read,db.write,pack.entity]",
+    "core/entities/UserEntityService.ts:661 UserEntityService.packMany [db.read,federation.ap,pack.entity,redis.other,redis.read,service.call]",
+    "server/api/endpoints/ap/show.ts:133 <anon>.fetchAny [federation.ap,pack.entity,service.call]"
+   ]
+  },
+  "write-verb performs nothing observable": {
+   "n": 711,
+   "mismatch": 358,
+   "rate": 0.504,
+   "desc": "mutator-like names whose reachable effects are only read/pure (delegation to other services is not counted as a mismatch)",
+   "examples": [
+    "server/web/ClientServerService.ts:206 ClientServerService.createServer [db.read,log,pack.entity,service.call]",
+    "components/MkPostForm.vue:840 .post [api.call,local.state,log,ui.dialog,vue.emit,vue.state]",
+    "server/WellKnownServerService.ts:42 WellKnownServerService.createServer [db.read,pack.entity,service.call]",
+    "aiscript/api.ts:35 .createAiScriptEnv [api.call,local.state,ui.dialog]",
+    "core/EmailService.ts:41 EmailService.sendEmail [log]",
+    "core/chart/core.ts:457 Chart.save [log]",
+    "server/http-access-log.ts:121 .registerHttpAccessLog []",
+    "postgres.ts:262 .createPostgresDataSource []"
+   ]
+  }
+ },
+ "category_predictors": {
+  "majority": 0.426,
+  "layer": {
+   "acc": 0.495,
+   "macro_recall": 0.256,
+   "recall": {
+    "pure": 0.74,
+    "emit": 0.0,
+    "write": 0.4,
+    "read": 0.62,
+    "delegate": 0.03,
+    "state": 0.0,
+    "ui": 0.0
+   }
+  },
+  "name": {
+   "acc": 0.48,
+   "macro_recall": 0.353,
+   "recall": {
+    "pure": 0.57,
+    "emit": 0.18,
+    "write": 0.26,
+    "read": 0.53,
+    "delegate": 0.05,
+    "state": 0.26,
+    "ui": 0.62
+   }
+  },
+  "structure": {
+   "acc": 0.548,
+   "macro_recall": 0.359,
+   "recall": {
+    "pure": 0.82,
+    "emit": 0.06,
+    "write": 0.7,
+    "read": 0.47,
+    "delegate": 0.24,
+    "state": 0.1,
+    "ui": 0.12
+   }
+  },
+  "layer+name": {
+   "acc": 0.498,
+   "macro_recall": 0.444,
+   "recall": {
+    "pure": 0.57,
+    "emit": 0.31,
+    "write": 0.38,
+    "read": 0.42,
+    "delegate": 0.34,
+    "state": 0.39,
+    "ui": 0.7
+   }
+  },
+  "layer+structure": {
+   "acc": 0.546,
+   "macro_recall": 0.446,
+   "recall": {
+    "pure": 0.7,
+    "emit": 0.18,
+    "write": 0.77,
+    "read": 0.45,
+    "delegate": 0.39,
+    "state": 0.19,
+    "ui": 0.44
+   }
+  },
+  "name+structure": {
+   "acc": 0.541,
+   "macro_recall": 0.496,
+   "recall": {
+    "pure": 0.62,
+    "emit": 0.23,
+    "write": 0.6,
+    "read": 0.44,
+    "delegate": 0.5,
+    "state": 0.38,
+    "ui": 0.7
+   }
+  },
+  "layer+name+structure": {
+   "acc": 0.533,
+   "macro_recall": 0.527,
+   "recall": {
+    "pure": 0.59,
+    "emit": 0.33,
+    "write": 0.57,
+    "read": 0.39,
+    "delegate": 0.6,
+    "state": 0.45,
+    "ui": 0.76
+   }
+  }
+ },
+ "outliers": {
+  "fe:component": [
+   {
+    "where": "components/global/MkSuspense.vue:20",
+    "unit": ".process",
+    "why": [
+     "thens",
+     "mutate",
+     "loc"
+    ],
+    "dist": 18.7
+   },
+   {
+    "where": "components/MkPostForm.vue:840",
+    "unit": ".post",
+    "why": [
+     "ternary",
+     "chain",
+     "cyc"
+    ],
+    "dist": 12.5
+   },
+   {
+    "where": "components/MkEmojiPicker.vue:191",
+    "unit": ".searchUnicode",
+    "why": [
+     "loops",
+     "chain",
+     "optional"
+    ],
+    "dist": 12.3
+   },
+   {
+    "where": "components/MkPostForm.vue:1139",
+    "unit": ".openAccountMenu",
+    "why": [
+     "nonnull",
+     "mutate",
+     "chain"
+    ],
+    "dist": 11.5
+   }
+  ],
+  "fe:page": [
+   {
+    "where": "pages/install-extensions.vue:42",
+    "unit": "._fetch_",
+    "why": [
+     "switch",
+     "try",
+     "mutate"
+    ],
+    "dist": 14.9
+   },
+   {
+    "where": "pages/scratchpad.vue:62",
+    "unit": ".run",
+    "why": [
+     "let_share",
+     "try",
+     "switch"
+    ],
+    "dist": 12.5
+   },
+   {
+    "where": "pages/share.vue:30",
+    "unit": ".init",
+    "why": [
+     "try",
+     "mutate",
+     "awaits"
+    ],
+    "dist": 9.9
+   },
+   {
+    "where": "pages/admin/RolesEditorFormula.vue:68",
+    "unit": ".set",
+    "why": [
+     "let_share",
+     "switch",
+     "cyc"
+    ],
+    "dist": 9.9
+   }
+  ],
+  "be:service": [
+   {
+    "where": "core/NoteCreateService.ts:441",
+    "unit": "NoteCreateService.create",
+    "why": [
+     "nonnull",
+     "switch",
+     "mutate"
+    ],
+    "dist": 18.3
+   },
+   {
+    "where": "core/NoteCreateService.ts:747",
+    "unit": "NoteCreateService.postNoteCreated",
+    "why": [
+     "thens",
+     "loops",
+     "cyc"
+    ],
+    "dist": 14.8
+   },
+   {
+    "where": "core/DriveService.ts:445",
+    "unit": "DriveService.addFile",
+    "why": [
+     "mutate",
+     "nonnull",
+     "ternary"
+    ],
+    "dist": 14.7
+   },
+   {
+    "where": "core/MfmService.ts:272",
+    "unit": "MfmService.toHtml",
+    "why": [
+     "try",
+     "switch",
+     "ternary"
+    ],
+    "dist": 14.0
+   }
+  ],
+  "be:endpoint": [
+   {
+    "where": "server/api/endpoints/i/update.ts:286",
+    "unit": "<anon>.<handler>",
+    "why": [
+     "throw",
+     "loops",
+     "mutate"
+    ],
+    "dist": 17.7
+   },
+   {
+    "where": "server/api/endpoints/admin/update-meta.ts:244",
+    "unit": "<anon>.<handler>",
+    "why": [
+     "mutate",
+     "chain",
+     "cyc"
+    ],
+    "dist": 14.9
+   },
+   {
+    "where": "server/api/endpoints/i/notifications-grouped.ts:73",
+    "unit": "<anon>.<handler>",
+    "why": [
+     "nonnull",
+     "chain",
+     "mutate"
+    ],
+    "dist": 13.9
+   },
+   {
+    "where": "server/api/endpoints/notes/drafts/update.ts:248",
+    "unit": "<anon>.<handler>",
+    "why": [
+     "throw",
+     "switch",
+     "optional"
+    ],
+    "dist": 12.3
+   }
+  ],
+  "fe:util": [
+   {
+    "where": "utility/admin-lookup.ts:11",
+    "unit": ".lookupUser",
+    "why": [
+     "thens",
+     "depth",
+     "let_share"
+    ],
+    "dist": 26.6
+   },
+   {
+    "where": "utility/get-note-menu.ts:180",
+    "unit": ".getNoteMenu",
+    "why": [
+     "thens",
+     "optional",
+     "nonnull"
+    ],
+    "dist": 23.2
+   },
+   {
+    "where": "utility/get-user-menu.ts:24",
+    "unit": ".getUserMenu",
+    "why": [
+     "ternary",
+     "chain",
+     "awaits"
+    ],
+    "dist": 13.6
+   },
+   {
+    "where": "utility/drive.ts:270",
+    "unit": ".createCroppedImageDriveFileFromImageDriveFile",
+    "why": [
+     "thens",
+     "depth",
+     "mutate"
+    ],
+    "dist": 12.8
+   }
+  ],
+  "fe:module": [
+   {
+    "where": "boot/common.ts:35",
+    "unit": ".common",
+    "why": [
+     "thens",
+     "try",
+     "awaits"
+    ],
+    "dist": 21.9
+   },
+   {
+    "where": "os.ts:101",
+    "unit": ".promiseDialog",
+    "why": [
+     "thens",
+     "mutate",
+     "depth"
+    ],
+    "dist": 18.6
+   },
+   {
+    "where": "boot/main-boot.ts:33",
+    "unit": ".mainBoot",
+    "why": [
+     "thens",
+     "switch",
+     "cyc"
+    ],
+    "dist": 16.1
+   },
+   {
+    "where": "aiscript/api.ts:35",
+    "unit": ".createAiScriptEnv",
+    "why": [
+     "let_share",
+     "throw",
+     "ternary"
+    ],
+    "dist": 10.1
+   }
+  ],
+  "be:misc": [
+   {
+    "where": "misc/loader.ts:50",
+    "unit": "DebounceLoader.enqueueDebouncedLoadJob",
+    "why": [
+     "thens",
+     "depth",
+     "uses_this"
+    ],
+    "dist": 12.1
+   },
+   {
+    "where": "misc/gen-identicon.ts:47",
+    "unit": ".genIdenticon",
+    "why": [
+     "loops",
+     "mutate",
+     "let_share"
+    ],
+    "dist": 9.9
+   },
+   {
+    "where": "misc/get-note-summary.ts:12",
+    "unit": ".getNoteSummary",
+    "why": [
+     "let_share",
+     "nonnull",
+     "cyc"
+    ],
+    "dist": 9.1
+   },
+   {
+    "where": "misc/zip.ts:117",
+    "unit": "ZipFile.extractToFile",
+    "why": [
+     "throw",
+     "try",
+     "let_share"
+    ],
+    "dist": 8.6
+   }
+  ],
+  "be:activitypub": [
+   {
+    "where": "core/activitypub/models/ApPersonService.ts:303",
+    "unit": "ApPersonService.createPerson",
+    "why": [
+     "thens",
+     "try",
+     "throw"
+    ],
+    "dist": 22.1
+   },
+   {
+    "where": "core/activitypub/models/ApPersonService.ts:490",
+    "unit": "ApPersonService.updatePerson",
+    "why": [
+     "thens",
+     "optional",
+     "throw"
+    ],
+    "dist": 20.7
+   },
+   {
+    "where": "core/activitypub/models/ApNoteService.ts:128",
+    "unit": "ApNoteService.createNote",
+    "why": [
+     "throw",
+     "try",
+     "chain"
+    ],
+    "dist": 14.2
+   },
+   {
+    "where": "core/activitypub/ApRendererService.ts:357",
+    "unit": "ApRendererService.renderNote",
+    "why": [
+     "chain",
+     "ternary",
+     "awaits"
+    ],
+    "dist": 9.9
+   }
+  ],
+  "be:entity-pack": [
+   {
+    "where": "core/entities/UserEntityService.ts:405",
+    "unit": "UserEntityService.pack",
+    "why": [
+     "nonnull",
+     "ternary",
+     "optional"
+    ],
+    "dist": 22.0
+   },
+   {
+    "where": "core/entities/NoteEntityService.ts:493",
+    "unit": "NoteEntityService.packMany",
+    "why": [
+     "optional",
+     "chain",
+     "loops"
+    ],
+    "dist": 13.3
+   },
+   {
+    "where": "core/entities/ChannelEntityService.ts:47",
+    "unit": "ChannelEntityService.pack",
+    "why": [
+     "optional",
+     "let_share",
+     "ternary"
+    ],
+    "dist": 11.2
+   },
+   {
+    "where": "core/entities/NoteEntityService.ts:363",
+    "unit": "NoteEntityService.pack",
+    "why": [
+     "optional",
+     "ternary",
+     "cyc"
+    ],
+    "dist": 11.0
+   }
+  ],
+  "be:server": [
+   {
+    "where": "server/api/ApiCallService.ts:350",
+    "unit": "ApiCallService.call",
+    "why": [
+     "nonnull",
+     "throw",
+     "optional"
+    ],
+    "dist": 14.1
+   },
+   {
+    "where": "server/api/SignupApiService.ts:60",
+    "unit": "SignupApiService.signup",
+    "why": [
+     "throw",
+     "try",
+     "awaits"
+    ],
+    "dist": 13.2
+   },
+   {
+    "where": "server/web/ClientServerService.ts:206",
+    "unit": "ClientServerService.createServer",
+    "why": [
+     "awaits",
+     "cyc",
+     "loc"
+    ],
+    "dist": 10.9
+   },
+   {
+    "where": "server/ServerService.ts:77",
+    "unit": "ServerService.launch",
+    "why": [
+     "switch",
+     "try",
+     "awaits"
+    ],
+    "dist": 10.4
+   }
+  ],
+  "be:other": [
+   {
+    "where": "boot/master.ts:62",
+    "unit": ".masterMain",
+    "why": [
+     "let_share",
+     "try",
+     "awaits"
+    ],
+    "dist": 11.9
+   },
+   {
+    "where": "boot/shutdown-handler.ts:39",
+    "unit": ".installShutdownSignalHandlers",
+    "why": [
+     "try",
+     "depth",
+     "loops"
+    ],
+    "dist": 11.7
+   },
+   {
+    "where": "boot/worker.ts:22",
+    "unit": ".workerMain",
+    "why": [
+     "let_share",
+     "try",
+     "nonnull"
+    ],
+    "dist": 11.4
+   },
+   {
+    "where": "logging/LogNormalizer.ts:179",
+    "unit": ".normalizeValue",
+    "why": [
+     "try",
+     "loops",
+     "cyc"
+    ],
+    "dist": 9.9
+   }
+  ],
+  "be:stream": [
+   {
+    "where": "server/api/stream/channels/hybrid-timeline.ts:54",
+    "unit": "HybridTimelineChannel.onNote",
+    "why": [
+     "nonnull",
+     "optional",
+     "cyc"
+    ],
+    "dist": 9.8
+   },
+   {
+    "where": "server/api/stream/channels/home-timeline.ts:44",
+    "unit": "HomeTimelineChannel.onNote",
+    "why": [
+     "nonnull",
+     "optional",
+     "cyc"
+    ],
+    "dist": 9.7
+   },
+   {
+    "where": "server/api/stream/Connection.ts:145",
+    "unit": "Connection.onWsConnectionMessage",
+    "why": [
+     "switch",
+     "try",
+     "let_share"
+    ],
+    "dist": 8.4
+   },
+   {
+    "where": "server/api/stream/NoteStreamingHidingService.ts:47",
+    "unit": "NoteStreamingHidingService.filter",
+    "why": [
+     "chain",
+     "nonnull",
+     "loops"
+    ],
+    "dist": 8.0
+   }
+  ],
+  "fe:ui-shell": [
+   {
+    "where": "ui/deck/clip-column.vue:117",
+    "unit": ".setClip",
+    "why": [
+     "chain",
+     "nonnull",
+     "ternary"
+    ],
+    "dist": 7.0
+   },
+   {
+    "where": "ui/deck/list-column.vue:44",
+    "unit": ".setList",
+    "why": [
+     "chain",
+     "nonnull",
+     "awaits"
+    ],
+    "dist": 6.6
+   },
+   {
+    "where": "ui/deck/antenna-column.vue:46",
+    "unit": ".setAntenna",
+    "why": [
+     "chain",
+     "awaits",
+     "depth"
+    ],
+    "dist": 5.8
+   },
+   {
+    "where": "ui/deck/channel-column.vue:39",
+    "unit": ".setChannel",
+    "why": [
+     "chain",
+     "nonnull",
+     "optional"
+    ],
+    "dist": 5.5
+   }
+  ],
+  "pkg:frontend-shared": [
+   {
+    "where": "packages/frontend-shared/js/mfm-renderer.ts:87",
+    "unit": ".createMfmRenderer",
+    "why": [
+     "switch",
+     "ternary",
+     "cyc"
+    ],
+    "dist": 16.3
+   },
+   {
+    "where": "packages/frontend-shared/js/i18n.ts:82",
+    "unit": "I18n.tsx",
+    "why": [
+     "loops",
+     "mutate",
+     "loc"
+    ],
+    "dist": 10.2
+   },
+   {
+    "where": "packages/frontend-shared/js/theme.ts:138",
+    "unit": ".parseThemeCode",
+    "why": [
+     "let_share",
+     "try",
+     "throw"
+    ],
+    "dist": 9.2
+   },
+   {
+    "where": "packages/frontend-shared/js/embed-page.ts:56",
+    "unit": ".parseEmbedParams",
+    "why": [
+     "let_share",
+     "cyc",
+     "throw"
+    ],
+    "dist": 8.5
+   }
+  ],
+  "be:queue-processor": [
+   {
+    "where": "queue/processors/InboxProcessorService.ts:65",
+    "unit": "InboxProcessorService.process",
+    "why": [
+     "try",
+     "throw",
+     "switch"
+    ],
+    "dist": 15.7
+   },
+   {
+    "where": "queue/processors/ImportCustomEmojisProcessorService.ts:78",
+    "unit": "ImportCustomEmojisProcessorService.process",
+    "why": [
+     "try",
+     "loops",
+     "throw"
+    ],
+    "dist": 14.4
+   },
+   {
+    "where": "queue/processors/CleanRemoteNotesProcessorService.ts:55",
+    "unit": "CleanRemoteNotesProcessorService.process",
+    "why": [
+     "try",
+     "optional",
+     "loops"
+    ],
+    "dist": 12.8
+   },
+   {
+    "where": "queue/processors/ExportClipsProcessorService.ts:52",
+    "unit": "ExportClipsProcessorService.process",
+    "why": [
+     "thens",
+     "try",
+     "awaits"
+    ],
+    "dist": 12.2
+   }
+  ],
+  "fe-embed": [
+   {
+    "where": "misskey-api.ts:13",
+    "unit": ".misskeyApi",
+    "why": [
+     "thens",
+     "depth",
+     "loc"
+    ],
+    "dist": 12.3
+   },
+   {
+    "where": "misskey-api.ts:60",
+    "unit": ".misskeyApiGet",
+    "why": [
+     "thens",
+     "depth",
+     "loc"
+    ],
+    "dist": 12.2
+   },
+   {
+    "where": "components/EmPagination.vue:144",
+    "unit": ".fetchMore",
+    "why": [
+     "mutate",
+     "ternary",
+     "depth"
+    ],
+    "dist": 9.0
+   },
+   {
+    "where": "post-message.ts:38",
+    "unit": ".postMessageToParentWindow",
+    "why": [
+     "let_share",
+     "depth",
+     "loc"
+    ],
+    "dist": 7.7
+   }
+  ],
+  "fe:preferences": [
+   {
+    "where": "preferences/manager.ts:460",
+    "unit": "PreferencesManager.enableSync",
+    "why": [
+     "try",
+     "nonnull",
+     "awaits"
+    ],
+    "dist": 9.4
+   },
+   {
+    "where": "preferences.ts:56",
+    "unit": ".cloudSet",
+    "why": [
+     "try",
+     "let_share",
+     "throw"
+    ],
+    "dist": 6.7
+   },
+   {
+    "where": "preferences/manager.ts:150",
+    "unit": ".normalizePreferences",
+    "why": [
+     "mutate",
+     "loops",
+     "chain"
+    ],
+    "dist": 6.3
+   },
+   {
+    "where": "preferences/manager.ts:352",
+    "unit": "PreferencesManager.fetchCloudValues",
+    "why": [
+     "loops",
+     "uses_this",
+     "in_class"
+    ],
+    "dist": 6.1
+   }
+  ],
+  "fe:widget": [
+   {
+    "where": "widgets/server-metric/cpu-mem.vue:43",
+    "unit": ".onStats",
+    "why": [
+     "let_share",
+     "nonnull",
+     "chain"
+    ],
+    "dist": 12.0
+   },
+   {
+    "where": "widgets/server-metric/net.vue:40",
+    "unit": ".onStats",
+    "why": [
+     "nonnull",
+     "chain",
+     "let_share"
+    ],
+    "dist": 10.3
+   },
+   {
+    "where": "widgets/WidgetAiscript.vue:62",
+    "unit": ".run",
+    "why": [
+     "try",
+     "let_share",
+     "optional"
+    ],
+    "dist": 8.4
+   },
+   {
+    "where": "widgets/WidgetAiscriptApp.vue:51",
+    "unit": ".run",
+    "why": [
+     "try",
+     "let_share",
+     "optional"
+    ],
+    "dist": 8.3
+   }
+  ]
+ },
+ "file_homogeneity": {
+  "fe:component": {
+   "files": 68,
+   "mean_within_file_style_entropy": 0.76,
+   "layer_entropy": 1.29
+  },
+  "fe:page": {
+   "files": 77,
+   "mean_within_file_style_entropy": 0.9,
+   "layer_entropy": 1.23
+  },
+  "be:service": {
+   "files": 66,
+   "mean_within_file_style_entropy": 1.05,
+   "layer_entropy": 1.69
+  },
+  "fe:util": {
+   "files": 24,
+   "mean_within_file_style_entropy": 1.08,
+   "layer_entropy": 2.11
+  },
+  "fe:module": {
+   "files": 17,
+   "mean_within_file_style_entropy": 0.98,
+   "layer_entropy": 1.91
+  },
+  "be:misc": {
+   "files": 13,
+   "mean_within_file_style_entropy": 0.57,
+   "layer_entropy": 1.62
+  },
+  "be:activitypub": {
+   "files": 11,
+   "mean_within_file_style_entropy": 0.94,
+   "layer_entropy": 1.69
+  },
+  "be:entity-pack": {
+   "files": 10,
+   "mean_within_file_style_entropy": 1.17,
+   "layer_entropy": 1.61
+  },
+  "be:server": {
+   "files": 12,
+   "mean_within_file_style_entropy": 1.09,
+   "layer_entropy": 2.19
+  },
+  "be:other": {
+   "files": 9,
+   "mean_within_file_style_entropy": 1.19,
+   "layer_entropy": 2.05
+  },
+  "be:stream": {
+   "files": 10,
+   "mean_within_file_style_entropy": 0.74,
+   "layer_entropy": 0.99
+  },
+  "fe:ui-shell": {
+   "files": 6,
+   "mean_within_file_style_entropy": 0.83,
+   "layer_entropy": 1.16
+  },
+  "pkg:frontend-shared": {
+   "files": 6,
+   "mean_within_file_style_entropy": 0.69,
+   "layer_entropy": 1.76
+  },
+  "be:queue-processor": {
+   "files": 5,
+   "mean_within_file_style_entropy": 1.16,
+   "layer_entropy": 2.07
+  },
+  "fe-embed": {
+   "files": 4,
+   "mean_within_file_style_entropy": 0.82,
+   "layer_entropy": 1.12
+  },
+  "fe:preferences": {
+   "files": 4,
+   "mean_within_file_style_entropy": 1.3,
+   "layer_entropy": 1.96
+  },
+  "fe:widget": {
+   "files": 1,
+   "mean_within_file_style_entropy": 0.92,
+   "layer_entropy": 1.24
+  }
+ },
+ "doc_by_category": {
+  "delegate": 0.041,
+  "emit": 0.114,
+  "pure": 0.146,
+  "read": 0.042,
+  "state": 0.126,
+  "ui": 0.023,
+  "write": 0.158
+ },
+ "complex_undocumented_by_layer": {
+  "fe:component": {
+   "cyc>=12": 38,
+   "undocumented": 0.97
+  },
+  "fe:page": {
+   "cyc>=12": 8,
+   "undocumented": 1.0
+  },
+  "be:service": {
+   "cyc>=12": 53,
+   "undocumented": 0.83
+  },
+  "be:endpoint": {
+   "cyc>=12": 30,
+   "undocumented": 0.97
+  },
+  "fe:util": {
+   "cyc>=12": 25,
+   "undocumented": 0.92
+  },
+  "fe:module": {
+   "cyc>=12": 12,
+   "undocumented": 0.92
+  },
+  "be:misc": {
+   "cyc>=12": 5,
+   "undocumented": 0.6
+  },
+  "be:activitypub": {
+   "cyc>=12": 15,
+   "undocumented": 0.6
+  },
+  "be:entity-pack": {
+   "cyc>=12": 14,
+   "undocumented": 0.93
+  },
+  "be:server": {
+   "cyc>=12": 26,
+   "undocumented": 0.85
+  },
+  "be:other": {
+   "cyc>=12": 8,
+   "undocumented": 0.12
+  },
+  "be:stream": {
+   "cyc>=12": 15,
+   "undocumented": 0.8
+  },
+  "fe:ui-shell": {
+   "cyc>=12": 0,
+   "undocumented": 0.0
+  },
+  "pkg:frontend-shared": {
+   "cyc>=12": 6,
+   "undocumented": 0.67
+  },
+  "be:queue-processor": {
+   "cyc>=12": 9,
+   "undocumented": 1.0
+  },
+  "fe-embed": {
+   "cyc>=12": 1,
+   "undocumented": 1.0
+  },
+  "fe:preferences": {
+   "cyc>=12": 2,
+   "undocumented": 1.0
+  },
+  "fe:widget": {
+   "cyc>=12": 0,
+   "undocumented": 0.0
+  }
+ },
+ "concept_word_counts_in_unit_names": {
+  "note": {
+   "note": 77,
+   "post": 26,
+   "status": 5,
+   "toot": 0
+  },
+  "renote": {
+   "renote": 11,
+   "boost": 0,
+   "repost": 0,
+   "reblog": 0,
+   "announce": 4
+  },
+  "reaction": {
+   "reaction": 16,
+   "like": 11,
+   "favourite": 0,
+   "favorite": 2
+  },
+  "emoji": {
+   "emoji": 39,
+   "emote": 0,
+   "emoticon": 0
+  },
+  "user": {
+   "user": 111,
+   "account": 34,
+   "actor": 4,
+   "person": 5
+  },
+  "follow": {
+   "follow": 32,
+   "following": 16,
+   "follower": 2,
+   "subscribe": 4
+  },
+  "instance": {
+   "instance": 21,
+   "server": 17,
+   "host": 15,
+   "domain": 2
+  },
+  "remote": {
+   "remote": 17,
+   "foreign": 0,
+   "external": 2,
+   "federated": 2
+  },
+  "drive": {
+   "drive": 24,
+   "file": 55,
+   "attachment": 0,
+   "media": 10
+  },
+  "timeline": {
+   "timeline": 14,
+   "feed": 1,
+   "stream": 30
+  },
+  "channel": {
+   "channel": 19,
+   "group": 1,
+   "community": 0
+  },
+  "moderation": {
+   "moderat": 0,
+   "abuse": 5,
+   "report": 5,
+   "suspend": 3,
+   "silence": 0,
+   "block": 10,
+   "mute": 19
+  },
+  "activitypub": {
+   "activity": 7,
+   "inbox": 4,
+   "outbox": 1,
+   "actor": 4,
+   "webfinger": 1,
+   "ap": 17
+  }
+ },
+ "top_name_words": [
+  [
+   "on",
+   480
+  ],
+  [
+   "handler",
+   464
+  ],
+  [
+   "get",
+   362
+  ],
+  [
+   "is",
+   135
+  ],
+  [
+   "create",
+   135
+  ],
+  [
+   "fetch",
+   121
+  ],
+  [
+   "update",
+   115
+  ],
+  [
+   "user",
+   111
+  ],
+  [
+   "pack",
+   104
+  ],
+  [
+   "to",
+   102
+  ],
+  [
+   "set",
+   85
+  ],
+  [
+   "note",
+   77
+  ],
+  [
+   "add",
+   74
+  ],
+  [
+   "save",
+   69
+  ],
+  [
+   "init",
+   65
+  ],
+  [
+   "remove",
+   63
+  ],
+  [
+   "delete",
+   62
+  ],
+  [
+   "menu",
+   62
+  ],
+  [
+   "dispose",
+   61
+  ],
+  [
+   "render",
+   60
+  ],
+  [
+   "process",
+   57
+  ],
+  [
+   "file",
+   55
+  ],
+  [
+   "change",
+   54
+  ],
+  [
+   "click",
+   53
+  ],
+  [
+   "show",
+   52
+  ],
+  [
+   "tick",
+   51
+  ],
+  [
+   "from",
+   50
+  ],
+  [
+   "message",
+   47
+  ],
+  [
+   "parse",
+   47
+  ],
+  [
+   "job",
+   44
+  ],
+  [
+   "many",
+   44
+  ],
+  [
+   "close",
+   43
+  ],
+  [
+   "toggle",
+   41
+  ],
+  [
+   "shutdown",
+   40
+  ],
+  [
+   "url",
+   40
+  ],
+  [
+   "emoji",
+   39
+  ],
+  [
+   "log",
+   39
+  ],
+  [
+   "all",
+   36
+  ],
+  [
+   "for",
+   36
+  ],
+  [
+   "cancel",
+   36
+  ],
+  [
+   "clicked",
+   36
+  ],
+  [
+   "search",
+   35
+  ],
+  [
+   "application",
+   34
+  ],
+  [
+   "account",
+   34
+  ],
+  [
+   "id",
+   34
+  ],
+  [
+   "image",
+   34
+  ],
+  [
+   "chart",
+   34
+  ],
+  [
+   "item",
+   34
+  ],
+  [
+   "cell",
+   34
+  ],
+  [
+   "use",
+   32
+  ],
+  [
+   "follow",
+   32
+  ],
+  [
+   "room",
+   32
+  ],
+  [
+   "open",
+   32
+  ],
+  [
+   "by",
+   31
+  ],
+  [
+   "query",
+   31
+  ],
+  [
+   "key",
+   31
+  ],
+  [
+   "stream",
+   30
+  ],
+  [
+   "error",
+   29
+  ],
+  [
+   "request",
+   29
+  ],
+  [
+   "data",
+   29
+  ]
+ ],
+ "shared_vocab_be_fe": 87,
+ "vocab_size_ge5": 431,
+ "short_receivers": [
+  [
+   "os",
+   1014
+  ],
+  [
+   "qb",
+   241
+  ],
+  [
+   "gl",
+   210
+  ],
+  [
+   "q",
+   115
+  ],
+  [
+   "In",
+   77
+  ],
+  [
+   "x",
+   74
+  ],
+  [
+   "ps",
+   68
+  ],
+  [
+   "ev",
+   66
+  ],
+  [
+   "el",
+   59
+  ],
+  [
+   "fs",
+   49
+  ],
+  [
+   "it",
+   38
+  ],
+  [
+   "v",
+   27
+  ]
+ ],
+ "cards": [
+  {
+   "where": "core/ChatService.ts:533",
+   "unit": "ChatService.getRoomReadStateMap",
+   "layer": "be:service",
+   "category": "write",
+   "leaves": [
+    "redis.other",
+    "redis.write"
+   ],
+   "style": "s0:+uses_this,+in_class,-cyc",
+   "cyc": 4,
+   "doc": false
+  },
+  {
+   "where": "core/SensitiveMediaDetectionService.ts:131",
+   "unit": "SensitiveMediaDetectionService.detectChunk",
+   "layer": "be:service",
+   "category": "emit",
+   "leaves": [
+    "log",
+    "net.http"
+   ],
+   "style": "s4:+try,+throw,+awaits",
+   "cyc": 10,
+   "doc": false
+  },
+  {
+   "where": "server/api/endpoints/users/followers.ts:104",
+   "unit": "<anon>.<handler>",
+   "layer": "be:endpoint",
+   "category": "read",
+   "leaves": [
+    "db.read",
+    "pack.entity",
+    "service.call"
+   ],
+   "style": "s3:+ternary,+cyc,+chain",
+   "cyc": 13,
+   "doc": false
+  },
+  {
+   "where": "core/activitypub/ApRendererService.ts:142",
+   "unit": "ApRendererService.renderCreate",
+   "layer": "be:activitypub",
+   "category": "read",
+   "leaves": [
+    "pack.entity"
+   ],
+   "style": "s0:+uses_this,+in_class,-cyc",
+   "cyc": 3,
+   "doc": false
+  },
+  {
+   "where": "queue/processors/ImportBlockingProcessorService.ts:64",
+   "unit": "ImportBlockingProcessorService.processDb",
+   "layer": "be:queue-processor",
+   "category": "emit",
+   "leaves": [
+    "db.read",
+    "log",
+    "queue.enqueue",
+    "service.call"
+   ],
+   "style": "s4:+try,+throw,+awaits",
+   "cyc": 9,
+   "doc": false
+  },
+  {
+   "where": "components/MkCropperDialog.vue:28",
+   "unit": ".ok",
+   "layer": "fe:component",
+   "category": "ui",
+   "leaves": [
+    "vue.emit"
+   ],
+   "style": "s3:+ternary,+cyc,+chain",
+   "cyc": 5,
+   "doc": false
+  },
+  {
+   "where": "pages/verify-email.vue:15",
+   "unit": ".submit",
+   "layer": "fe:page",
+   "category": "read",
+   "leaves": [
+    "api.call",
+    "ui.dialog"
+   ],
+   "style": "s2:+depth,+mutate,-in_class",
+   "cyc": 2,
+   "doc": false
+  },
+  {
+   "where": "lib/nirax.ts:460",
+   "unit": "Nirax.pushByPath",
+   "layer": "fe:util",
+   "category": "pure",
+   "leaves": [
+    "log"
+   ],
+   "style": "s0:+uses_this,+in_class,-cyc",
+   "cyc": 6,
+   "doc": true
+  }
+ ]
+}

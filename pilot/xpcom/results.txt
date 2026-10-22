@@ -1,0 +1,20 @@
+== unixcoder (N=129, chance R@1 0.008, chance MRR ~0.042)
+  C0 raw JS vs raw C++                               R@1 0.29 [0.22,0.36] R@10 0.65 MRR 0.42 | half-pool MRR 0.51 -> 0.51 with language offset | cos match 0.38 vs other 0.23
+  C1 JS name masked                                  R@1 0.25 [0.18,0.32] R@10 0.60 MRR 0.37 | half-pool MRR 0.47 -> 0.43 with language offset | cos match 0.35 vs other 0.23
+  C2 C++ name masked                                 R@1 0.22 [0.16,0.29] R@10 0.64 MRR 0.34 | half-pool MRR 0.45 -> 0.46 with language offset | cos match 0.36 vs other 0.23
+  C3 name masked, same hash both sides               R@1 0.21 [0.14,0.28] R@10 0.59 MRR 0.33 | half-pool MRR 0.42 -> 0.44 with language offset | cos match 0.36 vs other 0.24
+  C4 name masked, different hashes                   R@1 0.19 [0.12,0.26] R@10 0.54 MRR 0.29 | half-pool MRR 0.38 -> 0.41 with language offset | cos match 0.35 vs other 0.24
+  C5 all identifiers hashed, consistent              R@1 0.02 [0.00,0.04] R@10 0.12 MRR 0.06 | half-pool MRR 0.11 -> 0.07 with language offset | cos match 0.70 vs other 0.69
+  C6 all identifiers hashed, salted per language     R@1 0.00 [0.00,0.00] R@10 0.11 MRR 0.04 | half-pool MRR 0.08 -> 0.06 with language offset | cos match 0.68 vs other 0.68
+  C7 names only                                      R@1 0.74 [0.67,0.82] R@10 0.85 MRR 0.77 | half-pool MRR 0.81 -> 0.72 with language offset | cos match 0.97 vs other 0.57
+  C8 decoy name in JS                                {'top1_is_original': 0.22, 'top1_is_decoy_cpp': 0.04}
+== qwen3 (N=129, chance R@1 0.008, chance MRR ~0.042)
+  C0 raw JS vs raw C++                               R@1 0.50 [0.41,0.58] R@10 0.73 MRR 0.58 | half-pool MRR 0.65 -> 0.69 with language offset | cos match 0.54 vs other 0.29
+  C1 JS name masked                                  R@1 0.42 [0.34,0.50] R@10 0.69 MRR 0.52 | half-pool MRR 0.59 -> 0.62 with language offset | cos match 0.51 vs other 0.30
+  C2 C++ name masked                                 R@1 0.40 [0.32,0.48] R@10 0.71 MRR 0.51 | half-pool MRR 0.59 -> 0.60 with language offset | cos match 0.52 vs other 0.32
+  C3 name masked, same hash both sides               R@1 0.37 [0.29,0.46] R@10 0.69 MRR 0.49 | half-pool MRR 0.56 -> 0.60 with language offset | cos match 0.52 vs other 0.34
+  C4 name masked, different hashes                   R@1 0.36 [0.27,0.45] R@10 0.68 MRR 0.47 | half-pool MRR 0.55 -> 0.55 with language offset | cos match 0.51 vs other 0.34
+  C5 all identifiers hashed, consistent              R@1 0.00 [0.00,0.00] R@10 0.05 MRR 0.04 | half-pool MRR 0.07 -> 0.08 with language offset | cos match 0.66 vs other 0.65
+  C6 all identifiers hashed, salted per language     R@1 0.02 [0.00,0.04] R@10 0.07 MRR 0.05 | half-pool MRR 0.08 -> 0.08 with language offset | cos match 0.66 vs other 0.65
+  C7 names only                                      R@1 0.98 [0.96,1.00] R@10 1.00 MRR 0.99 | half-pool MRR 0.99 -> 0.99 with language offset | cos match 0.95 vs other 0.44
+  C8 decoy name in JS                                {'top1_is_original': 0.39, 'top1_is_decoy_cpp': 0.04}

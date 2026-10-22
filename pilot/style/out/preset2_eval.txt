@@ -1,0 +1,18 @@
+ESCAPE False independent check: expected-tag found 29/34, pure ok 19/20
+  snippets top by class {'compute': 1.0, 'io': 0.72, 'glue': 0.67} io sub 0.56
+  statistics      {'top': 0.94, 'sub': None, 'io_share': 0.0}
+  collections     {'top': 0.88, 'sub': None, 'io_share': 0.0}
+  argparse        {'top': None, 'sub': None, 'io_share': 0.6}
+  numpy_lib       {'top': 0.95, 'sub': None, 'io_share': 0.0}
+  networkx_paths  {'top': 1.0, 'sub': None, 'io_share': 0.0}
+  stdlib_fs       {'top': 0.5, 'sub': 0.5, 'io_share': 0.5}
+  stdlib_net      {'top': 0.65, 'sub': 0.53, 'io_share': 0.65}
+ESCAPE True independent check: expected-tag found 30/34, pure ok 19/20
+  snippets top by class {'compute': 1.0, 'io': 0.96, 'glue': 0.67} io sub 0.96
+  statistics      {'top': 0.94, 'sub': None, 'io_share': 0.0}
+  collections     {'top': 0.88, 'sub': None, 'io_share': 0.0}
+  argparse        {'top': None, 'sub': None, 'io_share': 0.6}
+  numpy_lib       {'top': 0.95, 'sub': None, 'io_share': 0.0}
+  networkx_paths  {'top': 1.0, 'sub': None, 'io_share': 0.0}
+  stdlib_fs       {'top': 0.5, 'sub': 0.5, 'io_share': 0.5}
+  stdlib_net      {'top': 0.65, 'sub': 0.53, 'io_share': 0.65}

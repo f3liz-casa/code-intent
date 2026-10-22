@@ -1,0 +1,12 @@
+SNIPPETS hand table (asttok.py) {'top': 0.95, 'io': 1.0, 'compute': 1.0, 'glue': 0.67, 'io_sub': 0.96}
+SNIPPETS preset plain {'top': 0.87, 'io': 0.68, 'compute': 1.0, 'glue': 0.67, 'io_sub': 0.56}
+SNIPPETS preset + module prior {'top': 0.88, 'io': 0.72, 'compute': 1.0, 'glue': 0.67, 'io_sub': 0.56}
+SNIPPETS preset + module + import prior {'top': 0.88, 'io': 1.0, 'compute': 0.88, 'glue': 0.67, 'io_sub': 0.64}
+REAL top-category accuracy against module-name expectation (hand table | generated preset); sub accuracy for IO
+  statistics      hand 0.91/nan | preset 0.94/nan | +module 0.94/nan | +module+import 0.55/nan
+  numpy_lib       hand 0.95/nan | preset 0.95/nan | +module 0.95/nan | +module+import 0.85/nan
+  networkx_paths  hand 1.00/nan | preset 1.00/nan | +module 1.00/nan | +module+import 1.00/nan
+  collections     hand 0.73/nan | preset 0.73/nan | +module 0.73/nan | +module+import 0.54/nan
+  argparse        hand io share 0.30 | preset io share 0.62 | +module io share 0.62 | +module+import io share 0.68
+  stdlib_fs       hand 0.82/0.80 | preset 0.55/0.55 | +module 0.55/0.55 | +module+import 0.80/0.75
+  stdlib_net      hand 0.85/0.82 | preset 0.30/0.25 | +module 0.30/0.25 | +module+import 0.78/0.30

@@ -1,0 +1,66 @@
+{
+ "unixcoder": {
+  "raw": {
+   "variance": {
+    "intent": 0.6153845191001892,
+    "style": 0.07201613485813141,
+    "resid": 0.3125993311405182
+   },
+   "overlap_style_intent": 0.0667116716504097,
+   "dims": [
+    4,
+    11
+   ],
+   "overlap_random_expect": 0.014322916666666666,
+   "style_acc_loio": 0.75,
+   "intent_acc_loso": 1.0,
+   "style_acc_after_removing_intent_subspace": 0.75,
+   "intent_acc_after_removing_style_subspace": 1.0,
+   "desc_mrr": 1.0,
+   "desc_r1_by_style": {
+    "P": 0.9166666666666666,
+    "O": 0.9166666666666666,
+    "F": 0.9166666666666666,
+    "D": 1.0,
+    "G": 0.9166666666666666
+   },
+   "axis_r2_loio": [
+    0.32214685785566977,
+    0.48323100254765683,
+    0.11344032576966201,
+    0.5032329609511583
+   ]
+  },
+  "hashed": {
+   "variance": {
+    "intent": 0.45952484011650085,
+    "style": 0.11227504163980484,
+    "resid": 0.4282001256942749
+   },
+   "overlap_style_intent": 0.09063175320625305,
+   "dims": [
+    4,
+    11
+   ],
+   "overlap_random_expect": 0.014322916666666666,
+   "style_acc_loio": 0.7666666666666666,
+   "intent_acc_loso": 0.95,
+   "style_acc_after_removing_intent_subspace": 0.8166666666666668,
+   "intent_acc_after_removing_style_subspace": 0.9666666666666668,
+   "desc_mrr": 0.5922237484737484,
+   "desc_r1_by_style": {
+    "P": 0.25,
+    "O": 0.5833333333333334,
+    "F": 0.4166666666666667,
+    "D": 0.4166666666666667,
+    "G": 0.3333333333333333
+   },
+   "axis_r2_loio": [
+    0.2844166614072674,
+    0.5343796980273396,
+    0.18501555484913978,
+    0.3738914494709987
+   ]
+  }
+ }
+}

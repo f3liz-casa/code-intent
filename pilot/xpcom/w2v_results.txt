@@ -1,0 +1,40 @@
+C0 raw
+   w2v-firefox                {'r1': 0.29, 'r10': 0.71, 'mrr': 0.43}
+   w2v-firefox idf            {'r1': 0.33, 'r10': 0.68, 'mrr': 0.46}
+   offset_halfpool_mrr(no,with) [0.53, 0.55]
+   w2v-GoogleNews             {'r1': 0.22, 'r10': 0.5, 'mrr': 0.31}
+   w2v-GoogleNews idf         {'r1': 0.32, 'r10': 0.53, 'mrr': 0.39}
+   tfidf-words (symbolic)     {'r1': 0.44, 'r10': 0.88, 'mrr': 0.6}
+C1 JS name masked
+   w2v-firefox                {'r1': 0.22, 'r10': 0.65, 'mrr': 0.37}
+   w2v-firefox idf            {'r1': 0.25, 'r10': 0.64, 'mrr': 0.38}
+   w2v-GoogleNews             {'r1': 0.14, 'r10': 0.41, 'mrr': 0.22}
+   w2v-GoogleNews idf         {'r1': 0.19, 'r10': 0.44, 'mrr': 0.28}
+   tfidf-words (symbolic)     {'r1': 0.36, 'r10': 0.77, 'mrr': 0.49}
+C2 C++ name masked
+   w2v-firefox                {'r1': 0.26, 'r10': 0.67, 'mrr': 0.39}
+   w2v-firefox idf            {'r1': 0.27, 'r10': 0.62, 'mrr': 0.4}
+   w2v-GoogleNews             {'r1': 0.16, 'r10': 0.4, 'mrr': 0.24}
+   w2v-GoogleNews idf         {'r1': 0.25, 'r10': 0.47, 'mrr': 0.33}
+   tfidf-words (symbolic)     {'r1': 0.37, 'r10': 0.82, 'mrr': 0.52}
+C4 name masked, different hashes
+   w2v-firefox                {'r1': 0.19, 'r10': 0.62, 'mrr': 0.33}
+   w2v-firefox idf            {'r1': 0.23, 'r10': 0.59, 'mrr': 0.36}
+   w2v-GoogleNews             {'r1': 0.12, 'r10': 0.38, 'mrr': 0.21}
+   w2v-GoogleNews idf         {'r1': 0.19, 'r10': 0.44, 'mrr': 0.27}
+   tfidf-words (symbolic)     {'r1': 0.31, 'r10': 0.72, 'mrr': 0.44}
+C5 all identifiers hashed
+   w2v-firefox                {'r1': 0.01, 'r10': 0.09, 'mrr': 0.05}
+   w2v-firefox idf            {'r1': 0.01, 'r10': 0.11, 'mrr': 0.04}
+   w2v-GoogleNews             {'r1': 0.01, 'r10': 0.1, 'mrr': 0.05}
+   w2v-GoogleNews idf         {'r1': 0.01, 'r10': 0.1, 'mrr': 0.04}
+   tfidf-words (symbolic)     {'r1': 0.06, 'r10': 0.16, 'mrr': 0.1}
+C7 names only
+   w2v-firefox                {'r1': 1.0, 'r10': 1.0, 'mrr': 1.0}
+   w2v-firefox idf            {'r1': 1.0, 'r10': 1.0, 'mrr': 1.0}
+   w2v-GoogleNews             {'r1': 1.0, 'r10': 1.0, 'mrr': 1.0}
+   w2v-GoogleNews idf         {'r1': 1.0, 'r10': 1.0, 'mrr': 1.0}
+   tfidf-words (symbolic)     {'r1': 1.0, 'r10': 1.0, 'mrr': 1.0}
+C8 decoy name in JS
+   w2v-firefox idf            {'top1_is_original': 0.22, 'top1_is_decoy_cpp': 0.02}
+   w2v-GoogleNews idf         {'top1_is_original': 0.18, 'top1_is_decoy_cpp': 0.03}

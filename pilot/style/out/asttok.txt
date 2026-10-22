@@ -1,0 +1,22 @@
+DATASET top acc 0.95 | sub acc (io: fs/net exact; compute/glue: top only) 0.94
+   compute top acc 1.00
+   io top acc 1.00
+   glue top acc 0.67
+   style P top acc 0.90
+   style O top acc 1.00
+   style F top acc 0.90
+   style D top acc 0.95
+   style G top acc 1.00
+  misses: [('glue_adults', 'D', 'compute'), ('glue_adults', 'F', 'compute'), ('glue_dispatch', 'P', 'compute'), ('glue_report', 'F', 'compute'), ('glue_report', 'P', 'compute')]
+real functions not matched to module source: 0
+REAL CODE (expected labels from module): top acc / sub acc / predicted-top share
+  statistics      n=33 top 0.91 sub nan  {'compute': 0.91, 'glue': 0.06, 'io': 0.03}
+  numpy_lib       n=20 top 0.95 sub nan  {'compute': 0.95, 'glue': 0.05}
+  networkx_paths  n=11 top 1.00 sub nan  {'compute': 1.0}
+  collections     n=26 top 0.73 sub nan  {'compute': 0.73, 'glue': 0.27}
+  argparse        n=40 top nan sub nan  {'compute': 0.68, 'io': 0.3, 'glue': 0.03}
+  stdlib_fs       n=40 top 0.82 sub 0.80  {'io': 0.82, 'compute': 0.17}
+  stdlib_net      n=40 top 0.85 sub 0.82  {'io': 0.85, 'compute': 0.15}
+STYLE LOIO acc (chance .20): structure+API tokens 0.91 | structure only (no API/lib tokens) 0.83   [baselines: keyword tf-idf .87, embeddings .54-.77]
+top-category LOIO from tf-idf of tokens (learned, not rule) 0.82
+wrote jl/asttok_*

@@ -1,0 +1,230 @@
+units 4604 Counter({'pure': 1960, 'read': 1083, 'ui': 432, 'write': 392, 'state': 390, 'emit': 202, 'delegate': 145})
+s0:+uses_this,+in_class,-cyc 1329
+s1:+thens,+depth,+loc 19
+s2:+depth,+mutate,-in_class 854
+s3:+ternary,+cyc,+chain 360
+s4:+try,+throw,+awaits 180
+s5:+switch,+cyc,+loc 135
+s6:-uses_this,-in_class,-loc 1727
+H(style|layer) {'fe:component': 1.29, 'fe:page': 1.23, 'be:service': 1.69, 'be:endpoint': 1.31, 'fe:util': 2.11, 'fe:module': 1.91, 'be:misc': 1.62, 'be:activitypub': 1.69, 'be:entity-pack': 1.61, 'be:server': 2.19, 'be:other': 2.05, 'be:stream': 0.99, 'fe:ui-shell': 1.16, 'pkg:frontend-shared': 1.76, 'be:queue-processor': 2.07, 'fe-embed': 1.12, 'fe:preferences': 1.96, 'fe:widget': 1.24}
+MI {'observed_bits': 0.1797, 'shuffle_mean': 0.0418, 'shuffle_p99': 0.0483}
+fe:component {'n': 847, 'mi': 0.049, 'null_mean': 0.013, 'z': np.float64(9.2)}
+fe:page {'n': 753, 'mi': 0.058, 'null_mean': 0.013, 'z': np.float64(9.6)}
+be:service {'n': 728, 'mi': 0.261, 'null_mean': 0.024, 'z': np.float64(34.8)}
+be:endpoint {'n': 451, 'mi': 0.117, 'null_mean': 0.027, 'z': np.float64(11.1)}
+fe:util {'n': 322, 'mi': 0.141, 'null_mean': 0.051, 'z': np.float64(6.3)}
+fe:module {'n': 245, 'mi': 0.173, 'null_mean': 0.053, 'z': np.float64(8.4)}
+be:misc {'n': 164, 'mi': 0.161, 'null_mean': 0.042, 'z': np.float64(7.1)}
+be:activitypub {'n': 150, 'mi': 0.513, 'null_mean': 0.118, 'z': np.float64(14.7)}
+be:entity-pack {'n': 147, 'mi': 0.411, 'null_mean': 0.067, 'z': np.float64(14.6)}
+be:server {'n': 123, 'mi': 0.421, 'null_mean': 0.121, 'z': np.float64(9.0)}
+be:other {'n': 119, 'mi': 0.175, 'null_mean': 0.119, 'z': np.float64(2.1)}
+be:stream {'n': 100, 'mi': 0.277, 'null_mean': 0.043, 'z': np.float64(10.2)}
+fe:ui-shell {'n': 73, 'mi': 0.328, 'null_mean': 0.067, 'z': np.float64(7.7)}
+pkg:frontend-shared {'n': 71, 'mi': 0.186, 'null_mean': 0.078, 'z': np.float64(3.3)}
+be:queue-processor {'n': 64, 'mi': 0.977, 'null_mean': 0.236, 'z': np.float64(12.5)}
+fe-embed {'n': 53, 'mi': 0.236, 'null_mean': 0.082, 'z': np.float64(3.6)}
+fe:preferences {'n': 49, 'mi': 0.299, 'null_mean': 0.201, 'z': np.float64(1.4)}
+fe:widget {'n': 47, 'mi': 0.441, 'null_mean': 0.14, 'z': np.float64(4.8)}
+{
+ "vue: <script setup lang=ts>": {
+  "n": 592,
+  "ok": 592,
+  "rate": 1.0
+ },
+ "vue: type-only defineProps (among files with props)": {
+  "n": 415,
+  "ok": 415,
+  "rate": 1.0
+ },
+ "vue: type-only defineEmits (among files with emits)": {
+  "n": 196,
+  "ok": 196,
+  "rate": 1.0
+ },
+ "vue: scss module (among files with style)": {
+  "n": 460,
+  "ok": 425,
+  "rate": 0.924
+ },
+ "vue: no native alert/confirm/prompt": {
+  "n": 592,
+  "ok": 591,
+  "rate": 0.998
+ },
+ "vue: no literal text nodes (i18n)": {
+  "n": 592,
+  "ok": 526,
+  "rate": 0.889
+ },
+ "vue: Options API leftovers": {
+  "n": 592,
+  "ok": 0,
+  "rate": 0.0
+ },
+ "spdx header (all)": {
+  "n": 1861,
+  "ok": 1847,
+  "rate": 0.992
+ },
+ "be: service files with @Injectable": {
+  "n": 99,
+  "ok": 95,
+  "rate": 0.96
+ },
+ "be: endpoints extend Endpoint": {
+  "n": 438,
+  "ok": 438,
+  "rate": 1.0
+ },
+ "be: injectable classes using @bindThis": {
+  "n": 238,
+  "ok": 229,
+  "rate": 0.962
+ },
+ "be: files with `any`": {
+  "n": 942,
+  "ok": 869,
+  "rate": 0.923
+ },
+ "all: no @ts-ignore/@ts-expect-error": {
+  "n": 1861,
+  "ok": 1846,
+  "rate": 0.992
+ },
+ "_ctor param styles": {
+  "service:type-only": 597,
+  "repo:inject": 286,
+  "repo:type-only": 6,
+  "service:inject": 1
+ }
+}
+{
+ "read-verb performs write/emit": {
+  "n": 962,
+  "mismatch": 65,
+  "rate": 0.068,
+  "desc": "getter-like names that write or emit",
+  "examples": [
+   "core/entities/UserEntityService.ts:405 UserEntityService.pack [db.read,federation.ap,pack.entity,redis.other,redis.read,service.call]",
+   "core/NoteCreateService.ts:276 NoteCreateService.fetchAndCreate [db.read,db.write,event.publish,federation.ap,log,pack.entity,queue.enqueue,redis.other,service.call]",
+   "core/FileInfoService.ts:66 FileInfoService.getFileInfo [crypto.id,fs,log,service.call,stream]",
+   "core/RemoteUserResolveService.ts:42 RemoteUserResolveService.resolveUser [db.read,db.write,federation.ap,log,service.call]",
+   "core/EmailService.ts:166 EmailService.validateEmailForAccount [db.read,net.http,service.call]",
+   "core/entities/PageEntityService.ts:38 PageEntityService.pack [db.read,db.write,pack.entity]",
+   "core/entities/UserEntityService.ts:661 UserEntityService.packMany [db.read,federation.ap,pack.entity,redis.other,redis.read,service.call]",
+   "server/api/endpoints/ap/show.ts:133 <anon>.fetchAny [federation.ap,pack.entity,service.call]"
+  ]
+ },
+ "write-verb performs nothing observable": {
+  "n": 711,
+  "mismatch": 358,
+  "rate": 0.504,
+  "desc": "mutator-like names whose reachable effects are only read/pure (delegation to other services is not counted as a mismatch)",
+  "examples": [
+   "server/web/ClientServerService.ts:206 ClientServerService.createServer [db.read,log,pack.entity,service.call]",
+   "components/MkPostForm.vue:840 .post [api.call,local.state,log,ui.dialog,vue.emit,vue.state]",
+   "server/WellKnownServerService.ts:42 WellKnownServerService.createServer [db.read,pack.entity,service.call]",
+   "aiscript/api.ts:35 .createAiScriptEnv [api.call,local.state,ui.dialog]",
+   "core/EmailService.ts:41 EmailService.sendEmail [log]",
+   "core/chart/core.ts:457 Chart.save [log]",
+   "server/http-access-log.ts:121 .registerHttpAccessLog []",
+   "postgres.ts:262 .createPostgresDataSource []"
+  ]
+ }
+}
+NB {
+ "majority": 0.426,
+ "layer": {
+  "acc": 0.495,
+  "macro_recall": 0.256,
+  "recall": {
+   "pure": 0.74,
+   "emit": 0.0,
+   "write": 0.4,
+   "read": 0.62,
+   "delegate": 0.03,
+   "state": 0.0,
+   "ui": 0.0
+  }
+ },
+ "name": {
+  "acc": 0.48,
+  "macro_recall": 0.353,
+  "recall": {
+   "pure": 0.57,
+   "emit": 0.18,
+   "write": 0.26,
+   "read": 0.53,
+   "delegate": 0.05,
+   "state": 0.26,
+   "ui": 0.62
+  }
+ },
+ "structure": {
+  "acc": 0.548,
+  "macro_recall": 0.359,
+  "recall": {
+   "pure": 0.82,
+   "emit": 0.06,
+   "write": 0.7,
+   "read": 0.47,
+   "delegate": 0.24,
+   "state": 0.1,
+   "ui": 0.12
+  }
+ },
+ "layer+name": {
+  "acc": 0.498,
+  "macro_recall": 0.444,
+  "recall": {
+   "pure": 0.57,
+   "emit": 0.31,
+   "write": 0.38,
+   "read": 0.42,
+   "delegate": 0.34,
+   "state": 0.39,
+   "ui": 0.7
+  }
+ },
+ "layer+structure": {
+  "acc": 0.546,
+  "macro_recall": 0.446,
+  "recall": {
+   "pure": 0.7,
+   "emit": 0.18,
+   "write": 0.77,
+   "read": 0.45,
+   "delegate": 0.39,
+   "state": 0.19,
+   "ui": 0.44
+  }
+ },
+ "name+structure": {
+  "acc": 0.541,
+  "macro_recall": 0.496,
+  "recall": {
+   "pure": 0.62,
+   "emit": 0.23,
+   "write": 0.6,
+   "read": 0.44,
+   "delegate": 0.5,
+   "state": 0.38,
+   "ui": 0.7
+  }
+ },
+ "layer+name+structure": {
+  "acc": 0.533,
+  "macro_recall": 0.527,
+  "recall": {
+   "pure": 0.59,
+   "emit": 0.33,
+   "write": 0.57,
+   "read": 0.39,
+   "delegate": 0.6,
+   "state": 0.45,
+   "ui": 0.76
+  }
+ }
+}
+doc {'delegate': 0.041, 'emit': 0.114, 'pure': 0.146, 'read': 0.042, 'state': 0.126, 'ui': 0.023, 'write': 0.158}

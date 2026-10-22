@@ -1,0 +1,37 @@
+repo	files_in_tree	source_files(non-test)	top_languages(files)
+JetBrains_kotlin	113920	14830	Kotlin 13226, Java 1186, C++ 334, JavaScript 32
+LemmyNet_lemmy	1480	539	Rust 525, TypeScript 12, JavaScript 2
+Perl_perl5	7037	1318	Perl 1205, C 113
+WordPress_WordPress	5318	2218	PHP 1951, JavaScript 267
+angular_angular	11704	3392	TypeScript 3218, JavaScript 104, Rust 70
+apache_kafka	7620	4015	Java 3908, Scala 76, Python 31
+apache_spark	27594	4675	Scala 3357, Java 877, Python 417, JavaScript 23
+apple_swift	33385	11621	Swift 10081, C++ 1299, Python 187, C 22
+discourse_discourse	27075	10350	Ruby 7645, JavaScript 2540, TypeScript 165
+django_django	7089	946	Python 913, JavaScript 33
+dotnet_aspnetcore	17745	7026	C# 6596, TypeScript 152, C++ 98, JavaScript 90
+dotnet_runtime	58550	17952	C# 15876, C++ 1164, C 614, TypeScript 176
+elastic_elasticsearch	50903	19831	Java 19750, TypeScript 44, C++ 31, Python 4
+elixir-lang_elixir	780	267	Elixir 267
+go-gitea_gitea	6374	2321	Go 2065, TypeScript 233, Vue 23
+home-assistant_core	29625	10964	Python 10963, JavaScript 1
+jgm_pandoc	2908	295	Haskell 289, JavaScript 3, Perl 2, Python 1
+kubernetes_kubernetes	31497	7491	Go 7487, Python 4
+laravel_framework	3482	1825	PHP 1823, JavaScript 2
+llvm_llvm-project	188255	15183	C++ 14179, Python 589, C 336, TypeScript 30
+mastodon_mastodon	10139	2966	Ruby 2059, TypeScript 726, JavaScript 181
+microsoft_vscode	21098	9403	TypeScript 9264, Rust 105, JavaScript 33, Python 1
+misskey-dev_misskey	3163	2385	TypeScript 1356, Vue 632, JavaScript 397
+mojolicious_mojo	409	154	Perl 148, JavaScript 6
+mozilla_gecko-dev	387841	23754	C++ 9352, JavaScript 5032, Kotlin 3090, C 2897
+nextcloud_server	14211	7271	PHP 4492, JavaScript 1901, TypeScript 504, Vue 374
+nodejs_node	56550	866	JavaScript 499, C++ 234, Python 130, C 2
+owncast_owncast	2224	1118	JavaScript 569, Go 325, TypeScript 224
+pandas-dev_pandas	2688	337	Python 320, C 11, C++ 6
+phoenixframework_phoenix	510	111	Elixir 93, JavaScript 18
+postgres_postgres	7722	1602	C 1403, Perl 191, Python 4, C++ 4
+rails_rails	5022	1621	Ruby 1579, JavaScript 42
+redis_redis	1939	166	C 150, Ruby 9, Python 6, JavaScript 1
+rust-lang_rust	63883	6467	Rust 6380, Python 38, TypeScript 20, JavaScript 15
+spring-projects_spring-framework	11462	5134	Java 5087, Kotlin 47
+tokio-rs_tokio	890	486	Rust 486
