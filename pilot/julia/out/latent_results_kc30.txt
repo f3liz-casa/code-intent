@@ -1,0 +1,48 @@
+held-out NLL of style features given layer and tokens (5 folds grouped by file); Kc=30 categories, Ks<=10 styles
+  reference from sec. 29: MLP on hand-built Intent features 3.67, per layer+category (hand) 6.65, global Gaussian 8.58
+  global Gaussian (robust)           NLL 22.317
+  per layer (robust)                 NLL 17.187
+  per layer + HAND category (robust) NLL 15.628
+  dense, no pruning (alpha=1)        NLL 13.421   styles alive 10.0   NMI(learned category, hand category) 0.20
+  sparse prior alpha=0.5, prune <2%  NLL 16.459   styles alive 6.0   NMI(learned category, hand category) 0.20
+  3 styles                           NLL 16.866   styles alive 3.0   NMI(learned category, hand category) 0.20
+  5 styles                           NLL 15.260   styles alive 5.0   NMI(learned category, hand category) 0.20
+  8 styles                           NLL 14.314   styles alive 8.0   NMI(learned category, hand category) 0.20
+
+LEARNED STYLES (alive ones, by share):
+  style 6   57.1% (cum  57.1%)  in_class -0.8, uses_this -0.8, awaits -0.4, throw -0.2   | layers: fe:component 847, fe:page 753, fe:util 229
+  style 1   30.1% (cum  87.2%)  in_class +1.1, uses_this +1.0, depth -0.4, cyc -0.3   | layers: be:service 532, be:endpoint 199, be:entity-pack 121
+  style 9    9.6% (cum  96.9%)  throw +2.0, awaits +1.6, uses_this +1.2, in_class +1.2   | layers: be:endpoint 246, be:service 141, be:activitypub 28
+  style 5    3.1% (cum 100.0%)  cyc +2.1, loc +1.9, ternary +1.8, chain +1.8   | layers: be:service 32, be:entity-pack 26, be:queue-processor 25
+
+LEARNED CATEGORIES (size, top tokens by lift, hand-category mix):
+  cat 29 n= 399  f:misskeyApi n:on f:emit c:os.alert m:alert n:fetch n:change n:button   | hand: pure 175, read 119
+  cat 20 n= 335  n:handler m:findOneBy m:pack m:findOneByOrFail c:idService.gen m:gen m:update c:getterService.getUser   | hand: write 126, read 112
+  cat 24 n= 320  c:os.apiWithDialog m:apiWithDialog m:push c:menuItems.push c:os.confirm m:confirm c:router.push m:reload   | hand: read 191, pure 65
+  cat 8  n= 302  c:Array.isArray m:isArray m:keys c:Object.keys m:has n:log f:set m:toLowerCase   | hand: pure 258, write 13
+  cat 17 n= 257  m:on m:set m:delete m:clearTimeout c:window.clearTimeout c:subscriber.on m:get m:setTimeout   | hand: pure 137, state 55
+  cat 2  n= 247  m:substring m:addEventListener m:getBoundingClientRect m:floor c:Math.floor f:nextTick m:preventDefault m:removeEventListener   | hand: pure 132, state 73
+  cat 28 n= 245  n:on n:shutdown n:application m:popupMenu c:os.popupMenu f:dispose n:show n:menu   | hand: pure 147, ui 47
+  cat 23 n= 237  n:get m:startsWith m:includes n:is n:url m:from c:Array.from f:   | hand: pure 180, emit 18
+  cat 5  n= 210  m:add n:is m:getTime n:job n:create c:dbQueue.add n:get m:now   | hand: pure 159, emit 24
+  cat 22 n= 169  m:slice m:toString c:id.slice m:findIndex n:file c:time.toString n:parse m:success   | hand: pure 98, ui 27
+  cat 7  n= 162  m:createQueryBuilder f:commit c:usersRepository.createQueryBuilder n:tick n:update n:stream n:publish f:publish   | hand: pure 67, write 49
+  cat 6  n= 158  m:close f:emit c:dialog.close n:close c:window.fetch n:cancel m:fetch c:dialogEl.close   | hand: ui 71, pure 41
+  cat 9  n= 155  f:import f:dispose f:resolve c:os.popupAsyncWithDialog m:popupAsyncWithDialog m:replace m:round c:Math.round   | hand: state 47, pure 46
+  cat 10 n= 148  m:map n:pack c:idService.parse m:parse m:packMany c:userEntityService.packMany m:pack m:get   | hand: read 110, pure 25
+  cat 12 n= 142  c:Math.max m:max c:Math.min m:min m:map c:console.log m:log m:commit   | hand: pure 88, state 38
+  cat 30 n= 141  f:misskeyApi m:map m:stringify m:push m:filter c:JSON.stringify m:emit c:globalEvents.emit   | hand: read 64, pure 44
+  cat 1  n= 112  c:userEntityService.isLocalUser m:isLocalUser c:userEntityService.isRemoteUser m:isRemoteUser c:driveFilesRepository.createQueryBuilder m:genLocalUserUri c:userEntityService.genLocalUserUri n:render   | hand: write 42, read 34
+  cat 4  n=  98  m:makePaginationQuery c:queryService.makePaginationQuery c:query.limit m:limit m:entries c:Object.entries m:createQueryBuilder m:packMany   | hand: read 58, pure 30
+  cat 27 n=  95  m:push c:cacheService.fetch m:fetch c:Math.random m:random c:menu.push m:from f:getFromDb   | hand: pure 36, state 20
+  cat 13 n=  90  c:logger.info m:info c:logger.succ m:succ c:logger.error n:process c:usersRepository.findOneBy f:getApId   | hand: write 38, emit 18
+  cat 18 n=  89  c:notesRepository.createQueryBuilder n:dispose m:createQueryBuilder m:off m:dispose c:subscriber.off m:del c:redisForSub.off   | hand: pure 42, read 21
+  cat 21 n=  75  c:moduleRef.get m:get c:resolver.resolve m:resolve f:getApId n:module m:createResolver c:apResolverService.createResolver   | hand: pure 31, emit 22
+  cat 11 n=  72  m:andWhere m:orderBy c:query.andWhere c:query.orderBy n:handler m:checkChatAvailability c:chatService.checkChatAvailability c:query.limit   | hand: read 45, pure 13
+  cat 3  n=  66  m:createQueryBuilder c:followingsRepository.createQueryBuilder m:map m:findBy c:it.map f:In f:saveCurrentDeckProfile c:Promise.all   | hand: read 29, state 14
+  cat 15 n=  62  f:format n:chart m:getFullYear m:getDate f:negate f:misskeyApiGet f:sum m:getMonth   | hand: read 29, pure 21
+  cat 19 n=  57  c:gl.uniform1f m:uniform1f c:gl.uniform1i m:uniform1i f:calc m:abs c:Math.abs n:main   | hand: pure 42, state 7
+  cat 25 n=  48  m:code c:reply.code c:reply.header m:header c:fastify.get c:fastify.register m:register f:done   | hand: pure 21, write 13
+  cat 14 n=  44  m:createQueryBuilder c:chatMessagesRepository.createQueryBuilder m:filter c:qb.orWhere m:orWhere c:ids.filter m:findBy c:notesRepository.createQueryBuilder   | hand: read 27, write 8
+  cat 26 n=  41  m:orWhere c:qb.orWhere c:def.get m:makePaginationQuery c:queryService.makePaginationQuery c:utils.assertString m:assertString m:andWhere   | hand: read 17, pure 16
+  cat 16 n=  28  m:where c:qb.where c:q.andWhere m:createQueryBuilder m:andWhere m:getQuery m:setParameters c:q.setParameters   | hand: read 19, pure 7

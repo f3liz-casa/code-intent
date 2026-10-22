@@ -1,0 +1,31 @@
+held-out NLL of style features given layer and tokens (5 folds grouped by file); Kc=12 categories, Ks<=10 styles
+  reference from sec. 29: MLP on hand-built Intent features 3.67, per layer+category (hand) 6.65, global Gaussian 8.58
+  global Gaussian (robust)           NLL 22.317
+  per layer (robust)                 NLL 17.187
+  per layer + HAND category (robust) NLL 15.628
+  dense, no pruning (alpha=1)        NLL 13.703   styles alive 10.0   NMI(learned category, hand category) 0.18
+  sparse prior alpha=0.5, prune <2%  NLL 16.705   styles alive 4.8   NMI(learned category, hand category) 0.18
+  3 styles                           NLL 16.950   styles alive 3.0   NMI(learned category, hand category) 0.18
+  5 styles                           NLL 15.349   styles alive 5.0   NMI(learned category, hand category) 0.18
+  8 styles                           NLL 14.318   styles alive 8.0   NMI(learned category, hand category) 0.18
+
+LEARNED STYLES (alive ones, by share):
+  style 6   54.5% (cum  54.5%)  in_class -0.9, uses_this -0.8, awaits -0.4, loc -0.3   | layers: fe:component 795, fe:page 732, fe:util 212
+  style 1   31.1% (cum  85.7%)  in_class +1.1, uses_this +1.0, depth -0.3, cyc -0.3   | layers: be:service 568, be:endpoint 209, be:entity-pack 113
+  style 9    6.7% (cum  92.4%)  throw +2.4, awaits +1.6, uses_this +1.2, in_class +1.2   | layers: be:endpoint 211, be:service 63, be:activitypub 20
+  style 5    4.9% (cum  97.3%)  cyc +2.1, loc +1.9, awaits +1.7, chain +1.5   | layers: be:service 74, be:endpoint 31, be:entity-pack 28
+  style 7    2.7% (cum 100.0%)  cyc +2.0, loc +1.9, depth +1.8, mutate +1.4   | layers: fe:component 52, fe:page 21, fe:util 19
+
+LEARNED CATEGORIES (size, top tokens by lift, hand-category mix):
+  cat 8  n= 969  n:get n:is c:Array.isArray m:isArray m:entries c:Object.entries f:format m:includes   | hand: pure 764, read 64
+  cat 9  n= 861  n:on f:emit f:dispose f:import m:close c:menuItems.push n:menu n:click   | hand: pure 408, ui 257
+  cat 12 n= 727  c:os.apiWithDialog m:apiWithDialog f:misskeyApi c:os.confirm m:confirm c:os.alert m:alert m:push   | hand: read 347, pure 191
+  cat 7  n= 500  n:handler m:findOneBy m:pack m:update c:moderationLogService.log c:idService.gen m:gen c:getterService.getUser   | hand: write 156, read 155
+  cat 2  n= 383  m:addEventListener m:substring m:floor c:Math.floor c:Math.random m:random m:error c:window.addEventListener   | hand: pure 209, state 115
+  cat 10 n= 263  m:map c:idService.parse m:parse n:pack m:on m:packMany c:userEntityService.packMany m:pack   | hand: read 137, pure 55
+  cat 1  n= 223  m:code c:reply.code c:reply.header m:header c:moduleRef.get c:userEntityService.isRemoteUser m:isRemoteUser m:get   | hand: write 72, emit 54
+  cat 3  n= 214  m:createQueryBuilder m:map c:gl.uniform1f m:uniform1f c:followingsRepository.createQueryBuilder m:filter m:findBy c:gl.uniform1i   | hand: pure 102, read 48
+  cat 6  n= 146  c:def.get m:info c:utils.assertString m:assertString c:logger.info m:get c:logger.succ m:succ   | hand: pure 36, write 33
+  cat 4  n= 126  m:makePaginationQuery c:queryService.makePaginationQuery m:createQueryBuilder m:where c:query.limit m:limit c:qb.where m:andWhere   | hand: read 105, pure 12
+  cat 11 n= 112  m:orderBy c:query.orderBy m:andWhere c:query.andWhere f:calc c:idService.gen m:gen m:checkChatAvailability   | hand: read 46, pure 25
+  cat 5  n=  80  m:createQueryBuilder m:orWhere c:notesRepository.createQueryBuilder c:qb.orWhere m:makePaginationQuery c:queryService.makePaginationQuery m:andWhere c:query.andWhere   | hand: read 32, pure 24

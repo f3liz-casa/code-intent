@@ -8,12 +8,12 @@ Core idea: the *style / paradigm* in which a piece of logic is written is part o
 
 | Path | What |
 |---|---|
-| [`docs/terms.md`](docs/terms.md) | The running research log (sections 1-29): terms and name check, embedding survey, goals, every pilot with its numbers and limits |
+| [`docs/terms.md`](docs/terms.md) | The running research log (sections 1-30): terms and name check, embedding survey, goals, every pilot with its numbers and limits |
 | `pilot/` | Pilot code and small results (large data, model weights and embeddings are not in the repo) |
 | `pilot/style/` | Category × style matrix, AST/API-leaf tokenizer, Python stdlib preset (sec. 19-22) |
 | `pilot/xpcom/` | Firefox C++ ↔ JS link test and the exact XPCOM bridge index (sec. 23-26) |
 | `pilot/misskey/` | Intent extraction from Misskey (TypeScript/Vue), indicators, reverse lookup Intent → style distribution, and refactor examples (sec. 27) |
-| `pilot/julia/` | Julia (stdlib only) trainer for an Intent-conditional style prior, with exporter, data and results (sec. 29) |
+| `pilot/julia/` | Julia (stdlib only) trainer for an Intent-conditional style prior, with exporter, data and results (sec. 29-30) |
 | `pilot/corpus/` | Multi-language corpus selection (35 repositories, 15 languages) and tree-size probe (sec. 28) |
 
 ## Findings so far (short)

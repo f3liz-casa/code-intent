@@ -1,0 +1,20 @@
+held-out NLL of style features given layer and tokens (5 folds grouped by file); Kc=1 categories, Ks<=10 styles
+  reference from sec. 29: MLP on hand-built Intent features 3.67, per layer+category (hand) 6.65, global Gaussian 8.58
+  global Gaussian (robust)           NLL 22.317
+  per layer (robust)                 NLL 17.187
+  per layer + HAND category (robust) NLL 15.628
+  dense, no pruning (alpha=1)        NLL 13.859   styles alive 10.0   NMI(learned category, hand category) 0.00
+  sparse prior alpha=0.5, prune <2%  NLL 15.878   styles alive 5.4   NMI(learned category, hand category) 0.00
+  3 styles                           NLL 16.962   styles alive 3.0   NMI(learned category, hand category) 0.00
+  5 styles                           NLL 15.401   styles alive 5.0   NMI(learned category, hand category) 0.00
+  8 styles                           NLL 14.511   styles alive 8.0   NMI(learned category, hand category) 0.00
+
+LEARNED STYLES (alive ones, by share):
+  style 6   54.8% (cum  54.8%)  in_class -0.9, uses_this -0.8, awaits -0.4, loc -0.3   | layers: fe:component 800, fe:page 730, fe:util 215
+  style 1   30.1% (cum  84.9%)  in_class +1.2, uses_this +1.0, depth -0.4, cyc -0.3   | layers: be:service 537, be:endpoint 198, be:entity-pack 117
+  style 9   10.1% (cum  95.0%)  throw +1.8, awaits +1.5, uses_this +1.2, in_class +1.2   | layers: be:endpoint 242, be:service 143, be:activitypub 30
+  style 5    2.5% (cum  97.5%)  cyc +2.5, ternary +2.3, loc +2.2, loops +2.1   | layers: be:service 25, be:entity-pack 24, be:queue-processor 24
+  style 7    2.5% (cum 100.0%)  loc +2.0, cyc +1.9, depth +1.8, mutate +1.5   | layers: fe:component 47, fe:page 23, fe:module 17
+
+LEARNED CATEGORIES (size, top tokens by lift, hand-category mix):
+  cat 1  n=4604  m:andWhere m:includes c:query.limit n:create m:exists m:floor c:Math.floor c:Math.min   | hand: pure 1960, read 1083
